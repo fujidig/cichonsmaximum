@@ -71,6 +71,7 @@
 \newcommand{\cf}{\operatorname{cf}}
 \newcommand{\LCU}{\mathsf{LCU}}
 \newcommand{\COB}{\mathsf{COB}}
+\newcommand{\relR}{\mathbf{R}}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \newcommand{\seq}[1]{{\langle#1\rangle}}
@@ -196,7 +197,7 @@
 	
 	Cichońの図式に表示されている基数不変量以外にもBlassの図式と呼ばれる図式の基数不変量：$\mathfrak{m}, \mathfrak{p}, \mathfrak{h}, \mathfrak{g}, \mathfrak{s}, \mathfrak{e}, \mathfrak{r}, \mathfrak{a}, \mathfrak{u}, \mathfrak{i}$などもある．しかし，本稿ではこれらには焦点を当てない．
 	
-	\begin{table}[h!]\label{table:history}
+	\begin{table}[h]\label{table:history}
 		\caption{Cichońの図式の歴史}
 			\begin{tabular}{@{} l|l|p{8cm}}
 			年     & 人物                                & 出来事                                                                                                                                                       \\ \hline
@@ -224,7 +225,7 @@
 	
 	Kunen-Millerの表というのは図\ref{fig:kunen-miller}のようなものである．\cite{Miller1981SomePO}から抜粋した．Cichońの図式ができる前はこのような表でどの組合せが可能か，可能ならどのモデルかを表していた．
 	
-	\begin{figure}[h!]\label{fig:kunen-miller}
+	\begin{figure}[h]\label{fig:kunen-miller}
 		\begin{center}
 		\includegraphics[width=7cm]{kunen-miller.png}
 		\caption{Kunen-Millerの表}
@@ -233,6 +234,33 @@
 	
 	表題にもなっているCichoń's maximumであるが，これはCichońの図式において (他の基数不変量の値に束縛されている$\add(\meager), \cof(\meager)$を除いて)すべての基数不変量の値を同時に別々の値にするモデルである．
 	そのようなモデルの構成法を本稿では見ていく．
+	
+	\subsection{relational systems}
+	
+	\begin{defi}
+		\begin{enumerate}
+			\item $\mathcal{C} = \{ (q_n)_{n \in \omega}	 : \text{各}q_n\text{は正の有理数かつ} \sum_n q_n \le 1 \}$とおく．
+			\item $\Omega_n = \{ a \in [2^{<\omega}]^{<\aleph_0} : \mu(\bigcup_{s \in a} [s]) \le 2^{-n} \}$とおき，$\Omega = \prod_{n \in \omega} \Omega_n$とおく．各$x \in \Omega$について$N_x = \bigcap_{n \in \omega} \bigcup_{s \in x(n)} [s]$とおく．
+		\end{enumerate}
+	\end{defi}
+	
+	\begin{defi}
+		\begin{enumerate}
+			\item $\relR_1 = (\mathcal{C}, \mathcal{C}, \{(x,y) : (\forall^\infty n) (x(n) \le y(n))\})$
+			\item $\relR_2 = (\Omega, 2^\omega, \{ (x, y) : y \not \in N_x \})$
+			\item $\relR_3 = (\omega^\omega, \omega^\omega, \{ (x,y) : (\forall^\infty n)(x(n) \le y(n))\})$
+			\item $\relR_4 = (\omega^\omega, \omega^\omega, \{ (x,y) : (\forall^\infty n) x(n) \ne y(n) \})$
+		\end{enumerate}
+	\end{defi}
+
+	\begin{lem}
+		\begin{enumerate}
+			\item $\frakd_{\relR_1} = \cof(\nul), \frakb_{\relR_1} = \add(\nul)$,
+			\item $\frakd_{\relR_2} = \non(\nul), \frakb_{\relR_2} = \cov(\nul)$,
+			\item $\frakd_{\relR_3} = \frakd, \frakb_{\relR_3} = \frakb$,
+			\item $\frakd_{\relR_4} = \cov(\meager), \frakb_{\relR_4} = \non(\meager)$.
+		\end{enumerate}
+	\end{lem}
 	
 	\subsection{Cohen，ランダム，Hechler，アメーバ，eventually different強制法}
 	\subsection{goodness}
