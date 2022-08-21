@@ -197,7 +197,7 @@
 	
 	Cichońの図式に表示されている基数不変量以外にもBlassの図式と呼ばれる図式の基数不変量：$\mathfrak{m}, \mathfrak{p}, \mathfrak{h}, \mathfrak{g}, \mathfrak{s}, \mathfrak{e}, \mathfrak{r}, \mathfrak{a}, \mathfrak{u}, \mathfrak{i}$などもある．しかし，本稿ではこれらには焦点を当てない．
 	
-	\begin{table}[h]\label{table:history}
+	\begin{table}[p]\label{table:history}
 		\caption{Cichońの図式の歴史}
 			\begin{tabular}{@{} l|l|p{8cm}}
 			年     & 人物                                & 出来事                                                                                                                                                       \\ \hline
@@ -223,9 +223,9 @@
 	連続体仮説の否定の無矛盾性以前にRothbergerの結果があるのがすごいが，この結果は「Luzin集合とSierpinski集合の両方が存在するならば連続体仮説が成り立つ」という定理の補題として証明された．
 	Cantorの$\aleph_0 < \frakc$以前にdu Bois-Reymondが$\aleph_0 < \frakb$を示していたことも驚くべきところであろう．
 	
-	Kunen-Millerの表というのは図\ref{fig:kunen-miller}のようなものである．\cite{Miller1981SomePO}から抜粋した．Cichońの図式ができる前はどの組合せが可能かこのような表で表していた。
+	Kunen-Millerの表というのは図\ref{fig:kunen-miller}のようなものである．\cite{Miller1981SomePO}から抜粋した．Cichońの図式ができる前はどの組合せが可能かこのような表で表していた．
 	
-	\begin{figure}[h]\label{fig:kunen-miller}
+	\begin{figure}[p]\label{fig:kunen-miller}
 		\begin{center}
 		\includegraphics[width=7cm]{kunen-miller.png}
 		\caption{Kunen-Millerの表}
@@ -263,6 +263,21 @@
 	\end{lem}
 	
 	\subsection{Cohen，ランダム，Hechler，アメーバ，eventually different強制法}
+	
+		\subsubsection{Cohen強制法}
+		
+		$\C = 2^{<\omega}$で順序を延長関係で入れたもの$q \le p \iff p \subset q$はCohen強制法と呼ばれる．
+		$\C$ジェネリックフィルター$G$から作られる実数$c = \bigcup G$をCohen実数という．
+		Cohen実数から$G$を復元できる：$G = \{ c \upharpoonright n : n \in \omega \}$.
+		Cohen強制法は可算なので，明らかに$\sigma$-centeredを満たす．特にcccを満たす．
+		
+		\subsubsection{ランダム強制法}
+		
+		$\B = \{ T : T\text{は}2^{<\omega}\text{の部分木で}\mu([T]) > 0 \}$で順序を包含関係で入れたもの$T' \le T \iff T' \subset T$をランダム強制法という．
+		$\B$ジェネリックフィルター$G$から作られる実数$r = \bigcap \{[T] : T \in G \}$をランダム実数という．
+		ランダム実数から$G$を復元できる：$G = \{ T \in \B : r \in [T] \}$．
+		ランダム強制法はcccを満たす．		
+		
 	\subsection{goodness}
 	\subsection{$\LCU$と$\COB$}
 	
