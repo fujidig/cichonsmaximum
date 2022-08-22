@@ -278,6 +278,21 @@
 		ランダム実数から$G$を復元できる：$G = \{ T \in \B : r \in [T] \}$．
 		ランダム強制法はcccを満たす．		
 		
+		\subsubsection{Hechler強制法}
+		
+		$\mathbb{D} = \{ (n, f) : n \in \omega, f \in \omega^\omega \}$で順序を
+		\[(m, g) \le (n, f) \iff n \le m \land f \upharpoonright n = g \upharpoonright n \land (\forall k \in \omega)(f(k) \le g(k))\]
+		で入れたものをHechler強制法という．
+		$\mathbb{D}$ジェネリックフィルター$G$から作られる実数$d = \bigcup \{ f \upharpoonright n : (n, f) \in G \}$をHechler実数という．
+		Hechler実数から$G$を復元できる：$G = \{ (n, f) : f \upharpoonright n = d \upharpoonright n \}$.
+		Hechler強制法は$\sigma$-centeredである．
+		
+		\subsubsection{アメーバ強制法}
+		
+		$\mathbb{A} = \{ T : T\text{は}2^{<\omega}\text{のsubtreeで}\mu([T])\ge 1/2 \}$で順序を$T' \le T \iff T' \subset T$で入れたものをアメーバ強制法という．
+		アメーバ強制法はcccである．
+		
+		
 	\subsection{goodness}
 	\subsection{$\LCU$と$\COB$}
 	
