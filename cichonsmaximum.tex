@@ -292,6 +292,15 @@
 		$\mathbb{A} = \{ T : T\text{は}2^{<\omega}\text{のsubtreeで}\mu([T])\ge 1/2 \}$で順序を$T' \le T \iff T' \subset T$で入れたものをアメーバ強制法という．
 		アメーバ強制法はcccである．
 		
+		\subsubsection{eventually different強制法}
+		
+		$\mathbb{E} = \{ (s,k,\varphi) : s \in \omega^{<\omega}, k \in \omega, \varphi \colon \omega \to [\omega]^{\le k}, (\forall i \in \dom(s))(s(i) \not \in \varphi(i)) \}$で順序を
+		\[
+		(s', k', \varphi') \le (s, k, \varphi) \iff s \subset s' \land k \le k' \land (\forall i)(\varphi(i) \subset \varphi'(i))
+		\]
+		を入れたものをeventually different強制法という．	
+		$\mathbb{E}$ジェネリックフィルター$G$から作られる実数$e = \bigcup \{ s  : (s, k, \varphi) \in G \}$をeventually different generic実数という．
+		eventually different強制法は$\sigma$-centeredである．
 		
 	\subsection{goodness}
 	\subsection{$\LCU$と$\COB$}
