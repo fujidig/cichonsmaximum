@@ -102,6 +102,7 @@
 \newtheorem*{notation*}{記法}
 \newtheorem{prob}[thm]{問題}
 \newtheorem{conj}[thm]{予想}
+\newtheorem{property}[thm]{性質}
 \renewcommand{\proofname}{証明}
 
 
@@ -302,6 +303,11 @@
 		\subsubsection{アメーバ強制法}
 		
 		$\mathbb{A} = \{ T : T\text{は}2^{<\omega}\text{のsubtreeで}\mu([T])\ge 1/2 \}$で順序を$T' \le T \iff T' \subset T$で入れたものをアメーバ強制法という．
+		$\mathbb{D}$ジェネリックフィルター$G$に対して測度$1/2$の閉集合$K_G = \bigcap G$が定まる。そのコードの一つ$a$をアメーバ実数という。アメーバ実数$a$から$G$を復元できる： $G = \{ T \in \mathbb{A} : \hat{a} \subset [T] \}$。
+		アメーバ実数をBorelな方法で加工して得られる実数$b \in \mathcal{C}$があって、それは$\relR_1$を解決する：
+		\[
+		(\forall x \in \mathcal{C}) (x \le b).
+		\]
 		アメーバ強制法はcccである．
 		
 		\subsubsection{eventually different強制法}
@@ -317,6 +323,42 @@
 		\[
 		(\forall x \in \omega^\omega \cap V)(\forall^\infty n)(x(n) \ne \dot{e}(n)).
 		\]
+		
+		\subsubsection{Borel reading of names}
+		
+		Cohen，ランダム，Hechler，アメーバ，eventually different強制法は共通して次の性質を持つ。
+		
+		\begin{property}\label{property:hasgenericreal}
+			$\P$をcccかつBorelな強制半順序であり、かつ$\P$はジェネリック実数を持つ。
+			すなわち、実数の名前$\dot{x}_\mathrm{gen}$とBorelな関係$B \subset \P \times 2^\omega$があって
+			\[
+			\P \forces p \in \dot{G} \iff B(p, \dot{x})
+			\]
+			となる。
+		\end{property}
+	
+		この性質を持つ強制法による強制拡大での実数はジェネリック実数からBorelな方法で計算できる。
+		\begin{prop}
+			$\P$を上記性質\ref{property:hasgenericreal}を持つ強制法とする。
+			$\dot{x}$を$2^\omega$の元の名前とする。
+			このときBorel関数$C \colon 2^\omega \to 2^\omega$があって、
+			\[
+			\forces \dot{x} = C(\dot{x}_\mathrm{gen})
+			\]
+			となる。
+		\end{prop}
+	
+		これは有限台反復でも同様である。
+		\begin{prop}
+		$(P_\alpha, Q_\alpha : \alpha < \delta)$を有限台反復とする。
+		各$Q_\alpha$は上記性質\ref{property:hasgenericreal}を持つ(ことが$P_\alpha$によって強制される)強制法とする。
+		$\dot{x}$を$2^\omega$の元の$P_\delta$名前とする。
+		このときBorel関数$C \colon (2^\omega)^\omega \to 2^\omega$と可算個の添字$\alpha_0, \alpha_1, \dots$があって、
+		\[
+		\forces \dot{x} = C(\dot{x}_\mathrm{gen}^{\alpha_0}, \dot{x}_\mathrm{gen}^{\alpha_1}, \dots)
+		\]
+		となる。
+		\end{prop}
 		
 	\subsection{goodness}
 	\subsection{$\LCU$と$\COB$}
