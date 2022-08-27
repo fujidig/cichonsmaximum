@@ -236,8 +236,30 @@
 	表題にもなっているCichoń's maximumであるが，これはCichońの図式において (他の基数不変量の値に束縛されている$\add(\meager), \cof(\meager)$を除いて)すべての基数不変量の値を同時に別々の値にするモデルである．
 	そのようなモデルの構成法を本稿では見ていく．
 	
-	\subsection{relational systems}
+	\subsection{関係システム}
 	
+	\begin{defi}
+		3つ組$\relR = (X, Y, \sqsubset)$が\textbf{関係システム}であるとは，$X, Y$が集合で$\sqsubset$が関係であることを言う (基本的には$\mathord{\sqsubset} \subset X \times Y$だがはみ出ていてよい)．
+		
+		$F \subset X$が$\relR$\textbf{有界}であるとは$(\exists y \in Y)(\forall x \in F) (x \sqsubset y)$を満たすことである．
+		$E \subset Y$が$\relR$\textbf{-dominanting}であるとは$(\forall x \in X)(\exists y \in E) (x \sqsubset y)$を満たすことである．
+		
+		\begin{itemize}
+			\item $\frakb(\relR) = \min \{ \abs{F} :  F \subset X \text{は}\relR\text{非有界} \}$
+			\item $\frakd(\relR) = \min \{ \abs{E} :  E \subset Y \text{は}\relR\text{-dominating} \}$
+		\end{itemize}
+		と定める．
+	\end{defi}
+	
+	\begin{defi}
+		関係システム$\relR = (X, Y, \sqsubset)$が\textbf{ポーランド関係システム}であるとは，次の3条件を満たすことを言う．
+		\begin{enumerate}
+			\item $X$は完全ポーランド空間．
+			\item $Y$はあるポーランド空間$Z$の非空な解析集合．
+			\item $\mathord{\sqsubset} \cap (X \times Z) = \bigcup_{n \in \omega} \mathord{\sqsubset}_n$であって，$\seq{\mathord{\sqsubset}_n : n \in \omega}$は$X \times Z$の閉集合の増大列であって，各$n \in \omega$と$y \in Y$について$(\mathord{\sqsubset}_n)^y = \{x \in X : x \sqsubset_n y \}$はnowhere denseである．
+		\end{enumerate}
+	\end{defi}
+
 	\begin{defi}
 		\begin{enumerate}
 			\item $\mathcal{C} = \{ (q_n)_{n \in \omega}	 : \text{各}q_n\text{は正の有理数かつ} \sum_n q_n \le 1 \}$とおく．
@@ -303,8 +325,8 @@
 		\subsubsection{アメーバ強制法}
 		
 		$\mathbb{A} = \{ T : T\text{は}2^{<\omega}\text{のsubtreeで}\mu([T])\ge 1/2 \}$で順序を$T' \le T \iff T' \subset T$で入れたものをアメーバ強制法という．
-		$\mathbb{D}$ジェネリックフィルター$G$に対して測度$1/2$の閉集合$K_G = \bigcap G$が定まる。そのコードの一つ$a$をアメーバ実数という。アメーバ実数$a$から$G$を復元できる： $G = \{ T \in \mathbb{A} : \hat{a} \subset [T] \}$。
-		アメーバ実数をBorelな方法で加工して得られる実数$b \in \mathcal{C}$があって、それは$\relR_1$を解決する：
+		$\mathbb{D}$ジェネリックフィルター$G$に対して測度$1/2$の閉集合$K_G = \bigcap G$が定まる．そのコードの一つ$a$をアメーバ実数という．アメーバ実数$a$から$G$を復元できる： $G = \{ T \in \mathbb{A} : \hat{a} \subset [T] \}$．
+		アメーバ実数をBorelな方法で加工して得られる実数$b \in \mathcal{C}$があって，それは$\relR_1$を解決する：
 		\[
 		(\forall x \in \mathcal{C}) (x \le b).
 		\]
@@ -326,38 +348,38 @@
 		
 		\subsubsection{Borel reading of names}
 		
-		Cohen，ランダム，Hechler，アメーバ，eventually different強制法は共通して次の性質を持つ。
+		Cohen，ランダム，Hechler，アメーバ，eventually different強制法は共通して次の性質を持つ．
 		
 		\begin{property}\label{property:hasgenericreal}
-			$\P$をcccかつBorelな強制半順序であり、かつ$\P$はジェネリック実数を持つ。
-			すなわち、実数の名前$\dot{x}_\mathrm{gen}$とBorelな関係$B \subset \P \times 2^\omega$があって
+			$\P$をcccかつBorelな強制半順序であり，かつ$\P$はジェネリック実数を持つ．
+			すなわち，実数の名前$\dot{x}_\mathrm{gen}$とBorelな関係$B \subset \P \times 2^\omega$があって
 			\[
 			\P \forces p \in \dot{G} \iff B(p, \dot{x})
 			\]
-			となる。
+			となる．
 		\end{property}
 	
-		この性質を持つ強制法による強制拡大での実数はジェネリック実数からBorelな方法で計算できる。
+		この性質を持つ強制法による強制拡大での実数はジェネリック実数からBorelな方法で計算できる．
 		\begin{prop}
-			$\P$を上記性質\ref{property:hasgenericreal}を持つ強制法とする。
-			$\dot{x}$を$2^\omega$の元の名前とする。
-			このときBorel関数$C \colon 2^\omega \to 2^\omega$があって、
+			$\P$を上記性質\ref{property:hasgenericreal}を持つ強制法とする．
+			$\dot{x}$を$2^\omega$の元の名前とする．
+			このときBorel関数$C \colon 2^\omega \to 2^\omega$があって，
 			\[
 			\forces \dot{x} = C(\dot{x}_\mathrm{gen})
 			\]
-			となる。
+			となる．
 		\end{prop}
 	
-		これは有限台反復でも同様である。
+		これは有限台反復でも同様である．
 		\begin{prop}
-		$(P_\alpha, Q_\alpha : \alpha < \delta)$を有限台反復とする。
-		各$Q_\alpha$は上記性質\ref{property:hasgenericreal}を持つ(ことが$P_\alpha$によって強制される)強制法とする。
-		$\dot{x}$を$2^\omega$の元の$P_\delta$名前とする。
-		このときBorel関数$C \colon (2^\omega)^\omega \to 2^\omega$と可算個の添字$\alpha_0, \alpha_1, \dots$があって、
+		$(P_\alpha, Q_\alpha : \alpha < \delta)$を有限台反復とする．
+		各$Q_\alpha$は上記性質\ref{property:hasgenericreal}を持つ(ことが$P_\alpha$によって強制される)強制法とする．
+		$\dot{x}$を$2^\omega$の元の$P_\delta$名前とする．
+		このときBorel関数$C \colon (2^\omega)^\omega \to 2^\omega$と可算個の添字$\alpha_0, \alpha_1, \dots$があって，
 		\[
 		\forces \dot{x} = C(\dot{x}_\mathrm{gen}^{\alpha_0}, \dot{x}_\mathrm{gen}^{\alpha_1}, \dots)
 		\]
-		となる。
+		となる．
 		\end{prop}
 		
 	\subsection{goodness}
