@@ -261,7 +261,7 @@
 	\end{defi}
 
 	\begin{fact}
-		$\relR$がポーランド関係システムであれば、$\frakb_\relR \le \non(\meager)$かつ$\cov(\meager) \le \frakd_\relR$である。
+		$\relR$がポーランド関係システムであれば，$\frakb_\relR \le \non(\meager)$かつ$\cov(\meager) \le \frakd_\relR$である．
 	\end{fact}
 
 	\begin{defi}
@@ -271,7 +271,7 @@
 		\end{enumerate}
 	\end{defi}
 
-	以下の4つはすべてポーランド関係システムである。
+	以下の4つはすべてポーランド関係システムである．
 	
 	\begin{defi}
 		\begin{enumerate}
@@ -391,9 +391,34 @@
 	\subsection{goodness}
 	
 	\begin{defi}
-		$P$をcccな強制法とし、$\lambda$を非可算正則基数とし、$R$をポーランド関係システムとする。
-		$P$が\textbf{$\lambda$-$\R$-good}であるとは、$Y$の元を表す各$P$名称$\dot{y}$について非空な集合$\mathscr{Y} \subset Y$でサイズ$<\lambda$なものが$V$に存在して、どんな$x \in X$についても$x$が$\mathscr{Y}$上$\relR$非有界であれば、$\forces x \not \sqsubset \dot{y}$.
+		$P$をcccな強制法とし，$\lambda$を非可算正則基数とし，$R$をポーランド関係システムとする．
+		$P$が\textbf{$\lambda$-$\relR$-good}であるとは，$Y$の元を表す各$P$名称$\dot{y}$について非空な集合$\mathscr{Y} \subset Y$でサイズ$<\lambda$なものが$V$に存在して，どんな$x \in X$についても$x$が$\mathscr{Y}$上$\relR$非有界であれば，$\forces x \not \sqsubset \dot{y}$.
 	\end{defi}
+
+	\begin{fact}
+		$\relR$をポーランド関係システムとする．
+		\begin{enumerate}
+			\item cccでサイズ$< \lambda$な強制法$P$はすべて，$\lambda$-$\relR$-goodである．特にCohen強制法は$\aleph_1$-$\relR$-goodである．
+			\item cccで$\lambda$-$\R$-goodであることは任意の長さの有限台反復で保たれる．
+		\end{enumerate}
+	\end{fact}
+
+	\begin{fact}
+	\begin{enumerate}
+		\item $\sigma$-centeredかランダム強制法の部分ブール代数である強制法は$\aleph_1$-$\relR_1$-goodである．
+		\item $\sigma$-centeredな強制法は$\aleph_1$-$\relR_2$-goodである．
+	\end{enumerate}
+	\end{fact}
+
+	\begin{lem}
+		$\relR = (X, Y, \sqsubset)$をポーランド関係システムとする．
+		$\lambda \le \kappa \le \mu$を全て非可算正則基数とする．
+		$\mu$個のCohen実数$(c_\alpha : \alpha < \mu)$を加えた後に，$\lambda$-$\relR$-good強制法で強制拡大したモデルにおいて，どんな実数$y \in Y$についても，
+		\[
+		(\exists \alpha < \kappa)(\forall \beta \in \kappa \setminus \alpha)(c_\beta \not \sqsubset y)
+		\]
+		が成り立つ．
+	\end{lem}
 	
 	\subsection{$\LCU$と$\COB$}
 	
