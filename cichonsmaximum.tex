@@ -245,8 +245,8 @@
 		$E \subset Y$が$\relR$\textbf{-dominanting}であるとは$(\forall x \in X)(\exists y \in E) (x \sqsubset y)$を満たすことである．
 		
 		\begin{itemize}
-			\item $\frakb(\relR) = \min \{ \abs{F} :  F \subset X \text{は}\relR\text{非有界} \}$
-			\item $\frakd(\relR) = \min \{ \abs{E} :  E \subset Y \text{は}\relR\text{-dominating} \}$
+			\item $\frakb_\relR = \min \{ \abs{F} :  F \subset X \text{は}\relR\text{非有界} \}$
+			\item $\frakd_\relR = \min \{ \abs{E} :  E \subset Y \text{は}\relR\text{-dominating} \}$
 		\end{itemize}
 		と定める．
 	\end{defi}
@@ -260,12 +260,18 @@
 		\end{enumerate}
 	\end{defi}
 
+	\begin{fact}
+		$\relR$がポーランド関係システムであれば、$\frakb_\relR \le \non(\meager)$かつ$\cov(\meager) \le \frakd_\relR$である。
+	\end{fact}
+
 	\begin{defi}
 		\begin{enumerate}
 			\item $\mathcal{C} = \{ (q_n)_{n \in \omega}	 : \text{各}q_n\text{は正の有理数かつ} \sum_n q_n \le 1 \}$とおく．
 			\item $\Omega_n = \{ a \in [2^{<\omega}]^{<\aleph_0} : \mu(\bigcup_{s \in a} [s]) \le 2^{-n} \}$とおき，$\Omega = \prod_{n \in \omega} \Omega_n$とおく．各$x \in \Omega$について$N_x = \bigcap_{n \in \omega} \bigcup_{s \in x(n)} [s]$とおく．
 		\end{enumerate}
 	\end{defi}
+
+	以下の4つはすべてポーランド関係システムである。
 	
 	\begin{defi}
 		\begin{enumerate}
@@ -328,7 +334,7 @@
 		$\mathbb{D}$ジェネリックフィルター$G$に対して測度$1/2$の閉集合$K_G = \bigcap G$が定まる．そのコードの一つ$a$をアメーバ実数という．アメーバ実数$a$から$G$を復元できる： $G = \{ T \in \mathbb{A} : \hat{a} \subset [T] \}$．
 		アメーバ実数をBorelな方法で加工して得られる実数$b \in \mathcal{C}$があって，それは$\relR_1$を解決する：
 		\[
-		(\forall x \in \mathcal{C}) (x \le b).
+		(\forall x \in \mathcal{C}^V) (x \le b).
 		\]
 		アメーバ強制法はcccである．
 		
@@ -354,7 +360,7 @@
 			$\P$をcccかつBorelな強制半順序であり，かつ$\P$はジェネリック実数を持つ．
 			すなわち，実数の名前$\dot{x}_\mathrm{gen}$とBorelな関係$B \subset \P \times 2^\omega$があって
 			\[
-			\P \forces p \in \dot{G} \iff B(p, \dot{x})
+			\P \forces p \in \dot{G} \iff B(p, \dot{x}_\mathrm{gen})
 			\]
 			となる．
 		\end{property}
@@ -383,6 +389,12 @@
 		\end{prop}
 		
 	\subsection{goodness}
+	
+	\begin{defi}
+		$P$をcccな強制法とし、$\lambda$を非可算正則基数とし、$R$をポーランド関係システムとする。
+		$P$が\textbf{$\lambda$-$\R$-good}であるとは、$Y$の元を表す各$P$名称$\dot{y}$について非空な集合$\mathscr{Y} \subset Y$でサイズ$<\lambda$なものが$V$に存在して、どんな$x \in X$についても$x$が$\mathscr{Y}$上$\relR$非有界であれば、$\forces x \not \sqsubset \dot{y}$.
+	\end{defi}
+	
 	\subsection{$\LCU$と$\COB$}
 	
 	\section{Cichońの図式の左半分}
