@@ -72,6 +72,7 @@
 \newcommand{\EUB}{\mathsf{EUB}}
 \newcommand{\COB}{\mathsf{COB}}
 \newcommand{\relR}{\mathbf{R}}
+\newcommand{\Pa}{\mathbb{P}^\mathrm{pre}}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \newcommand{\seq}[1]{{\langle#1\rangle}}
@@ -103,6 +104,7 @@
 \newtheorem{prob}[thm]{問題}
 \newtheorem{conj}[thm]{予想}
 \newtheorem{property}[thm]{性質}
+\newtheorem{assumption}[thm]{仮定}
 \renewcommand{\proofname}{証明}
 
 
@@ -269,6 +271,8 @@
 		\end{enumerate}
 	\end{defi}
 
+	ポーランド関係システムのような定義可能な関係システムを考えているとき，それを書いたときには今考えている宇宙の中でその定義を解釈したものを表すことにする．
+
 	\begin{fact}
 		$\relR$がポーランド関係システムであれば，$\frakb_\relR \le \non(\meager)$かつ$\cov(\meager) \le \frakd_\relR$である．
 	\end{fact}
@@ -340,7 +344,7 @@
 		\subsubsection{アメーバ強制法}
 		
 		$\mathbb{A} = \{ T : T\text{は}2^{<\omega}\text{のsubtreeで}\mu([T])\ge 1/2 \}$で順序を$T' \le T \iff T' \subset T$で入れたものをアメーバ強制法という．
-		$\mathbb{D}$ジェネリックフィルター$G$に対して測度$1/2$の閉集合$K_G = \bigcap G$が定まる．そのコードの一つ$a$をアメーバ実数という．アメーバ実数$a$から$G$を復元できる： $G = \{ T \in \mathbb{A} : \hat{a} \subset [T] \}$．
+		$\mathbb{D}$ジェネリックフィルター$G$に対して測度$1/2$の閉集合$K_G = \bigcap G$が定まる．そのコード$a$をアメーバ実数という．アメーバ実数$a$から$G$を復元できる： $G = \{ T \in \mathbb{A} : \hat{a} \subset [T] \}$．
 		アメーバ実数をBorelな方法で加工して得られる実数$b \in \mathcal{C}$があって，それは$\relR_1$を解決する：
 		\[
 		(\forall x \in \mathcal{C}^V) (x \le b).
@@ -432,7 +436,7 @@
 	\subsection{$\EUB$と$\COB$}
 	
 	\begin{defi}
-		$\gamma$を極限順序数，$P$をccc強制法，$\relR = (X, Y, \sqsubset)$をポーランド関係システムとする．
+		$\gamma$を極限順序数，$P$をccc強制法，$\relR = (X, Y, \sqsubset)$を定義可能な関係システムとする．
 		$\EUB(\relR, P, \gamma)$とは次の主張である：
 		$X$の元の$P$-名称の列$(\dot{x}_\alpha)_{\alpha < \gamma}$であって，どんな$Y$の元の$P$-名称の列$\dot{y}$についても
 		\[
@@ -440,10 +444,10 @@
 		\]
 		となる．
 	\end{defi}
-	$ccc$強制法を考えているので，$\gamma$が非可算共終数を持つときには，$(\exists \alpha < \gamma)(\forall \beta \in \gamma \setminus \alpha)$は強制関係の外にあろうが中にあろうが同じなことに注意しておく．
+	ccc強制法を考えているので，$\gamma$が非可算共終数を持つときには，$(\exists \alpha < \gamma)(\forall \beta \in \gamma \setminus \alpha)$は強制関係の外にあろうが中にあろうが同じなことに注意しておく．
 	
 	\begin{defi}
-		$\lambda, \mu$を非可算正則基数，$P$をccc強制法，$\relR = (X, Y, \sqsubset)$をポーランド関係システムとする．
+		$\lambda, \mu$を非可算正則基数，$P$をccc強制法，$\relR = (X, Y, \sqsubset)$を定義可能な関係システムとする．
 		このとき$\COB(\relR, P, \lambda, \mu)$は次の主張である：
 		${<}\lambda$-directedな半順序集合集合$(S, \prec)$でサイズ$\mu$なものと$Y$の元の$P$-名称の族$(\dot{y}_s : s \in S)$があって，$X$の元のどんな$P$-名称$\dot{x}$についても
 		\[
@@ -451,8 +455,52 @@
 		\]
 		となる．
 	\end{defi}
+
+	$\EUB(\relR, P, \gamma)$は$\COB(\relR, P, \cf(\gamma), \cf(\gamma))$と同値なことに注意する．
+	
+	\begin{lem}\label{lem:cobimpliesineq}
+		$\COB(\relR, P, \lambda, \mu)$は$P \forces (\frakb_\relR \ge \lambda \AND \frakd_\relR \le \mu)$を含意する．
+	\end{lem}
+
+	上の注意と補題\ref{lem:cobimpliesineq}より$\EUB(\relR, P, \lambda)$は$P \forces (\frakb_\relR \le \lambda \AND \frakd_\relR \ge \lambda)$を含意する．
 	
 	\section{Cichońの図式の左半分}
+	
+	\begin{assumption}\label{asm:P}
+		$\aleph_1<\lambda_1<\lambda_2<\lambda_3<\lambda_4<\lambda_5$を正則基数たちで
+		$\mu<\lambda_i$ならば$\mu^{\aleph_0}<\lambda_i$となるものたちとする．
+		また，$\lambda_3$は正則基数$\chi$で$\chi^{\aleph_0}=\chi$なものの後続基数だと仮定し，$\lambda_5^{<\lambda_4}=\lambda_5$とする．
+		
+		$\delta_5=\lambda_5+\lambda_5$とおき，$\delta_5\setminus\lambda_5$の非有界部分集合たち$S^1$, $S^2$, $S^3$ and $S^4$への分割を固定する．
+		各$\alpha\in \delta_5\setminus\lambda_5$ について$w_\alpha\subseteq \alpha$であって各$\{w_\alpha:\, \alpha\in S^i\}$は $[\delta_5]^{{<}\lambda_i}$の中で共終であると仮定する．
+	\end{assumption}
+	
+	\begin{defi}\label{def:Pa}
+		$\Pa=(P_\alpha,Q_\alpha)_{\alpha\in\delta_5}$ 
+		を有限台反復であって，$\alpha\in \lambda_5$に対する$Q_\alpha$はCohen強制法であり
+		\begin{flalign*}
+			&&
+			Q_\alpha\text{ は$w_\alpha$-部分的 }
+			\left\{
+			\begin{array}{c}
+				\text{アメーバ}\\
+				\text{ランダム}\\
+				\text{Hechler}\\
+				\text{eventually different}\\
+			\end{array}\right\}
+			\text{ 強制法} \hspace{0.5cm} \text{($\alpha$が}
+			\left\{
+			\begin{array}{l}
+				S^1\\
+				S^2\\
+				S^3\\
+				S^4\\
+			\end{array}
+			\right\} \text{の元のとき)}
+			\\
+		\end{flalign*}
+		であるものとする．
+	\end{defi}
 	
 	\section{ブール超冪}
 	
