@@ -69,7 +69,7 @@
 \newcommand{\DC}{\mathrm{DC}}
 \newcommand{\proj}{\operatorname{proj}}
 \newcommand{\cf}{\operatorname{cf}}
-\newcommand{\LCU}{\mathsf{LCU}}
+\newcommand{\EUB}{\mathsf{EUB}}
 \newcommand{\COB}{\mathsf{COB}}
 \newcommand{\relR}{\mathbf{R}}
 
@@ -250,6 +250,15 @@
 		\end{itemize}
 		と定める．
 	\end{defi}
+
+	\begin{defi}
+		関係システム$\relR = (X, Y, \sqsubset)$についてその双対を$\relR^\perp = (Y, X, \sqsubset^\perp)$と定める．ここに
+		\[
+		y \sqsubset^\perp x \iff \neg (x \sqsubset y).
+		\]
+	\end{defi}
+
+	$\frakb_{\relR^\perp} = \frakd_\relR$かつ$\frakd_{\relR^\perp} = \frakb_\relR$に注意する．
 	
 	\begin{defi}
 		関係システム$\relR = (X, Y, \sqsubset)$が\textbf{ポーランド関係システム}であるとは，次の3条件を満たすことを言う．
@@ -420,7 +429,28 @@
 		が成り立つ．
 	\end{lem}
 	
-	\subsection{$\LCU$と$\COB$}
+	\subsection{$\EUB$と$\COB$}
+	
+	\begin{defi}
+		$\gamma$を極限順序数，$P$をccc強制法，$\relR = (X, Y, \sqsubset)$をポーランド関係システムとする．
+		$\EUB(\relR, P, \gamma)$とは次の主張である：
+		$X$の元の$P$-名称の列$(\dot{x}_\alpha)_{\alpha < \gamma}$であって，どんな$Y$の元の$P$-名称の列$\dot{y}$についても
+		\[
+		(\exists \alpha < \gamma)(\forall \beta \in \gamma \setminus \alpha)\ P \forces \neg (\dot{x}_\beta \sqsubset \dot{y})
+		\]
+		となる．
+	\end{defi}
+	$ccc$強制法を考えているので，$\gamma$が非可算共終数を持つときには，$(\exists \alpha < \gamma)(\forall \beta \in \gamma \setminus \alpha)$は強制関係の外にあろうが中にあろうが同じなことに注意しておく．
+	
+	\begin{defi}
+		$\lambda, \mu$を非可算正則基数，$P$をccc強制法，$\relR = (X, Y, \sqsubset)$をポーランド関係システムとする．
+		このとき$\COB(\relR, P, \lambda, \mu)$は次の主張である：
+		${<}\lambda$-directedな半順序集合集合$(S, \prec)$でサイズ$\mu$なものと$Y$の元の$P$-名称の族$(\dot{y}_s : s \in S)$があって，$X$の元のどんな$P$-名称$\dot{x}$についても
+		\[
+		(\exists s \in S)(\forall t \succ s) \ P \forces \dot{x} \sqsubset \dot{y}_i
+		\]
+		となる．
+	\end{defi}
 	
 	\section{Cichońの図式の左半分}
 	
