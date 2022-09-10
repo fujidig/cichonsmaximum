@@ -373,12 +373,12 @@
 		Cohen，ランダム，Hechler，アメーバ，eventually different強制法は共通して次の性質を持つ．
 		
 		\begin{property}\label{property:hasgenericreal}
-			$\P$をcccかつBorelな強制半順序であり，かつ$\P$はジェネリック実数を持つ．
+			$\P$をcccかつBorelな強制半順序であり，かつ$\P$はジェネリック実数を持つという性質を考える．
 			すなわち，実数の名前$\dot{x}_\mathrm{gen}$とBorelな関係$B \subset \P \times 2^\omega$があって
 			\[
 			\P \forces p \in \dot{G} \iff B(p, \dot{x}_\mathrm{gen})
 			\]
-			となる．
+			となるという性質を考える．
 		\end{property}
 	
 		この性質を持つ強制法による強制拡大での実数はジェネリック実数からBorelな方法で計算できる．
@@ -476,6 +476,15 @@
 	\begin{lem}\label{lem:cobimpliesineq}
 		$\COB(\relR, P, \lambda, \mu)$は$P \forces (\frakb_\relR \ge \lambda \AND \frakd_\relR \le \mu)$を含意する．
 	\end{lem}
+	\begin{proof}
+		集合$(\dot{y}_s)_{s\in S}$はサイズ$\mu$のdominating familyなので$\mathfrak{d}_\relR\le \mu$を得る。
+
+		$\mathfrak{b}_\relR \ge \lambda$を示すために、$(\dot{x}_\alpha)_{\alpha\in\theta}$を長さ$\theta<\lambda$なる$X$の元の$P$名前の列とする。
+		各$\dot{x}_\alpha$について、$s_\alpha\in S$があって、$(\forall t\succ s_\alpha)\, P\forces \dot{x}_\alpha \sqsubset \dot{y}_t$である。
+		$S$は${<}\lambda$-directedなので、ある$t$があってどの$s_\alpha$よりも大きい。
+		したがって、$P\forces \dot{x}_\alpha \sqsubset \dot{y}_t $がすべての$\alpha$で成り立つ。
+		すなわち$\{\dot{x}_\alpha:\, \alpha\in\theta\}$はboundedである。
+	\end{proof}
 
 	上の注意と補題\ref{lem:cobimpliesineq}より$\EUB(\relR, P, \lambda)$は$P \forces (\frakb_\relR \le \lambda \AND \frakd_\relR \ge \lambda)$を含意する．
 	
