@@ -489,6 +489,25 @@
 	上の注意と補題\ref{lem:cobimpliesineq}より$\EUB(\relR, P, \lambda)$は$P \forces (\frakb_\relR \le \lambda \AND \frakd_\relR \ge \lambda)$を含意する．
 	
 	\section{Cichońの図式の左半分}
+
+	これから「部分的アメーバ強制法」「部分的ランダム強制法」「部分的Hechler強制法」「部分的eventually different強制法」を定義する．
+	そのために，性質\ref{property:hasgenericreal}を持つ強制法の有限台反復$(P_\alpha, Q_\alpha : \alpha < \delta)$を考える．
+	$(\dot{\eta}_\alpha : \alpha < \delta)$をジェネリック実数の列とする．
+	$\alpha < \delta$と$w \subset \alpha$を固定する．
+
+	\begin{defi}
+		\begin{enumerate}
+		\item $V$の元$(B, u)$が\textbf{$w$-コード}であるとは，$u$が$u \subset w$なる可算集合であり$B$が$B \colon \R^u \to \R$なるBorel関数であることを意味する．
+		\item $V^{P_\alpha}$の実数$x$が$w$-コード$(B, u)$の\textbf{解釈}であるとは，$x = B((\eta_\beta)_{\beta \in u})$であることを意味する
+		\item $\dot{Q}_\alpha$が\textbf{$w$-部分的ランダム強制法}であるとは，
+		\[
+			P_\alpha \forces Q_\alpha = \{ q : q \text{はランダム強制法の条件であり，}q\text{はある}w\text{-コード}(B, u)\text{ in }V\text{の解釈}\}	
+		\]
+		となっていることを意味する．ただし，$Q_\alpha$の順序はランダム強制法の順序の制限であるとする．
+		\end{enumerate}
+	\end{defi}
+
+	ランダム強制法以外のアメーバ・Hechler・eventually different強制法についても$w$-部分的強制法を同様に定義する．
 	
 	\begin{assumption}\label{asm:P}
 		$\aleph_1<\lambda_1<\lambda_2<\lambda_3<\lambda_4<\lambda_5$を正則基数たちで
