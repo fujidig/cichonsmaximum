@@ -74,7 +74,10 @@
 \newcommand{\EUB}{\mathsf{EUB}}
 \newcommand{\COB}{\mathsf{COB}}
 \newcommand{\relR}{\mathbf{R}}
-\newcommand{\Pa}{\mathbb{P}^\mathrm{pre}}
+%\newcommand{\Pa}{\mathbb{P}^\mathrm{pre}}
+\newcommand{\Pa}{\mathbb{P}^5}
+\newcommand{\crit}{\operatorname{crit}}
+
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \newcommand{\seq}[1]{{\langle#1\rangle}}
@@ -549,7 +552,8 @@
 	
 	$\kappa$を強コンパクト基数とし，$B$を$\kappa$分配的かつ$\kappa^+$-ccを持つ無原子完備ブール代数とする．
 	すると任意の$B$内の$\kappa$完備フィルターは$\kappa$完備なウルトラフィルターに拡大される．
-	また，ある$B$の反鎖$A_0$で濃度$\kappa$なものがあって，$A_0 \cap U = \emptyset$を満たす．
+	$U$は$\kappa^+$完備ではない．
+	%また，ある$B$の反鎖$A_0$で濃度$\kappa$なものがあって，$A_0 \cap U = \emptyset$を満たす．
 	今，$\kappa$完備なウルトラフィルター$U$を固定する．
 	
 	\textbf{BUP名前}とは関数$x \colon A \to V$であって，その定義域$A$は$B$の極大反鎖であるものである．
@@ -561,15 +565,47 @@
 	
 	2つのBUP名前に対してブール値$\truth{x=y}$が定まる．$x$と$y$が同値とは$\truth{x=y} \in U$であることを指す．
 	
-	$v \in V$の標準名前$\check{v}$とは$\{ (1_B, v) \}$のことである．
+	$v \in V$の標準名前$\check{v}$とは$\{ (1_B, w) : w \in v \}$のことである．
 	
 	ブール超冪$M^-$はBUP名前$x$の同値類$[x]$からなる．
 	$[x] \in^- [y]$を$\truth{x \in y} \in U$により定義する．
-	$j^- \colon V \to M^-$を$v$を$[\check{v}]$で定める．
+	$j^- \colon V \to M^-$を$v$を$[\check{v}]$に送る写像として定める．
 	
+	BUP名前$x_1, \dots, x_n$に対してブール値$\truth{\varphi(x_1, \dots, x_n)}$が適切に定まる．
+
+	次が成り立つ．
+	\begin{enumerate}
+		\item Łośの定理: $(M^-, \in^-) \models \varphi([x_1], \dots, [x_n])$が成り立つのはちょうど$\truth{\varphi(x_1, \dots, x_n)} \in U$のとき．
+		\item $j^- \colon (V, \in) \to (M^-, \in^-)$は初等埋め込み．
+		\item 特に$(M^-, \in^-)$は$\ZFC$のモデル．
+	\end{enumerate}
 	
-	
-	
+	$U$が$\sigma$完備なので，$(M^-, \in^-)$はwellfoundedである．
+	$M$を$(M^-, \in^-)$の推移崩壊とする．
+	そして$j \colon V \to M$を$j^-$と推移崩壊写像の合成とする．
+	$[x]$の推移崩壊$x^U$と書く．したがって，$\check{v}^U = j(v)$である．
+
+	\begin{fact}
+	\begin{enumerate}
+		\item $M \models \varphi(x_1^U, \dots, x_n^U)$となるのはちょうど$\truth{\varphi(x_1, \dots, x_n)} \in U$となるとき．
+		特に$j \colon V \to M$は初等埋め込み．
+		\item $\abs{Y} < \kappa$ならば$j(Y) = j``Y$である．特に$j$の$\kappa$への制限は恒等写像である．$M$は${<}\kappa$列で閉じている．
+		\item $j(\kappa) \ne \kappa$，特に$\kappa = \crit(j)$.
+	\end{enumerate}
+	\end{fact}
+	\begin{proof}
+		一つだけ示してみよう。$\alpha < \kappa$について$j(\alpha) = \alpha$を示す。
+		背理法で、$j(\alpha) > \alpha$となる$\alpha$が存在するとして、そのような最小を取る。
+		$\alpha \in j(\alpha) \in M$で$M$は推移的なので$\alpha \in M$である。
+		そこでBUP名前$x$をとって$j(x) = \alpha$となる。
+		$j(x) \in j(\alpha)$だからŁośの定理より$\truth{\check{x} \in \check{\alpha}} \in U$となる。
+		今ブール値$\truth{\check{x} \in \check{\alpha}}$は$\bigvee_{\beta \in \alpha} \truth{\check{x} = \check{\beta}}$に等しいことと、$U$の$\kappa$完備性より、ある$\beta < \alpha$があって、$\truth{\check{x} = \check{\beta}} \in U$となる。
+		Łośの定理をもう一度使うと$j(\beta) = j(x) = \alpha$。今$\beta$の最小性より$j(\beta) = \beta$だから$\beta = j(\beta) = j(x) = \alpha$となって、$\beta < \alpha$に反する。
+	\end{proof}
+
+	$V$の元$Y$について、$Y$の元を表す強制名前はBUP名前$x$でその値域$\range(x)$が$Y$の部分集合であるものとして書ける。
+	そのようなBUP名前を\textbf{$j(Y)$の元を表すBUP名前}と呼ぶことにする (そのような名前$x$について$x^U$は$j(Y)$の元であるため)。
+
 	\nocite{*}
 	\printbibliography[title={参考文献}]
 \end{document}
