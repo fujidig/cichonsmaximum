@@ -619,7 +619,7 @@
 	\end{proof}
 
 	\begin{defi}
-		\textbf{BUP埋め込み}とは，初等埋め込み$j \colon V \to M$ ($M$は推移的)であって，クリティカルポイント$\kappa$を持つものであって，
+		\textbf{BUP埋め込み}とは，初等埋め込み$j \colon V \to M$ ($M$は推移的)であって，臨界点$\kappa$を持つものであって，
 		$M$は${<}\kappa$-closedかつ，どんな${\le}\kappa$-directedな半順序集合$S$についても$j``S$は$j(S)$内でcofinalになるものである．
 	\end{defi}
 
@@ -652,7 +652,7 @@
 		$\kappa$を強コンパクト基数，$\theta > \kappa$を$\cf(\theta) > \kappa$なる基数とする．
 		このときBUP埋め込み$j$で$\crit(j) = \kappa$かつ次の3条件を満たすものが存在する：
 		\begin{enumerate}
-			\item $\cf(j(\kappa)) = cf(\theta)$かつ$j(\kappa) \ge \theta$.
+			\item $\cf(j(\kappa)) = \cf(\theta)$かつ$j(\kappa) \ge \theta$.
 			\item すべての$\mu$について$\abs{j(\mu)} \le \max(\mu, \theta)^\kappa$.
 			\item 特に$\theta^\kappa = \theta$かつ$\kappa \le \mu \le \theta$ならば$\abs{j(\mu)} = \theta$.
 		\end{enumerate}
@@ -709,6 +709,23 @@
 		\abs{j(\mu)} \le \max(\theta, \kappa)^\kappa.
 		\]
 	\end{proof}
+
+	\begin{defi}
+		\textbf{$\kappa$から$\theta$へのBUP埋め込み}とはBUP埋め込み$j$で臨界点$\kappa$を持ち，$\cf(j(\kappa)) = \abs{j(\kappa)} = \theta$となるものを言う．
+	\end{defi}
+
+	\begin{cor}
+		$\kappa$を強コンパクト，$\theta > \kappa$を正則基数で$\theta^\kappa = \theta$とする．
+		すると$\kappa$から$\theta$へのBUP埋め込みが存在する．(なおかつそれは，$\kappa \le \mu \le \theta$なる$\mu$に対して$\abs{j(\mu)} = \theta$を満たす)．
+	\end{cor}
+
+	\begin{prop}
+		$j \colon V \to M$を初等的で，$M$は推移的かつ${<}\kappa$-closedかつ$\crit(j) = \kappa$だとする．
+		ある$\mu < \kappa$について$P$は$\mu$-ccであると仮定する．
+		\begin{enumerate}
+			\item $j(P)$は$\mu$-cc．
+		\end{enumerate}
+	\end{prop}
 
 	\nocite{*}
 	\printbibliography[title={参考文献}]
