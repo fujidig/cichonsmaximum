@@ -77,6 +77,7 @@
 %\newcommand{\Pa}{\mathbb{P}^\mathrm{pre}}
 \newcommand{\Pa}{\mathbb{P}^5}
 \newcommand{\crit}{\operatorname{crit}}
+\newcommand{\supp}{\operatorname{supp}}
 
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
@@ -645,6 +646,68 @@
 		$\lambda > \kappa$ならば$\alpha$は${\le}\kappa$-directedな半順序なので，$j``\alpha$は$j(\alpha)$の中で共終である．
 		よって$j``f = (j(\xi), j(f(\xi)))_{\xi < \lambda}$は$\cf(j`` \lambda) = \cf(j `` \alpha) = \cf(j(\alpha))$を目撃する．
 		他方で，$\cf(j``\lambda) = \cf(\lambda) = \lambda$である．これで示せた．
+	\end{proof}
+
+	\begin{lem}
+		$\kappa$を強コンパクト基数，$\theta > \kappa$を$\cf(\theta) > \kappa$なる基数とする．
+		このときBUP埋め込み$j$で$\crit(j) = \kappa$かつ次の3条件を満たすものが存在する：
+		\begin{enumerate}
+			\item $\cf(j(\kappa)) = cf(\theta)$かつ$j(\kappa) \ge \theta$.
+			\item すべての$\mu$について$\abs{j(\mu)} \le \max(\mu, \theta)^\kappa$.
+			\item 特に$\theta^\kappa = \theta$かつ$\kappa \le \mu \le \theta$ならば$\abs{j(\mu)} = \theta$.
+		\end{enumerate}
+	\end{lem}
+	\begin{proof}
+		次で定まる強制法$(P_{\kappa,\theta}, \supseteq)$の完備化を$B$とする：
+		\[
+			P_{\kappa,\theta} = \{ f : f\text{は}\theta\text{から}\kappa\text{への部分関数で濃度が}{<}\kappa\text{なもの} \}
+		\]
+		$B$は${<}\kappa$分配的かつ$\kappa^+$-ccを持つ．
+		この強制法はジェネリックな関数$f^* \colon \theta \to \kappa$を付け加える．
+		よって，各$\delta < \theta$に対して$f^*(\delta)$は$\kappa$の元を表す強制名前であり，したがってBUP名前である．
+
+		1番について．
+		$x$を$j(\kappa)$の元を表すBUP名前とする．
+		すなわち$x$の定義域$A$は$B$の極大反鎖であり，値域は$\kappa$の部分集合である．
+		$P_{\kappa,\theta}$が$B$で稠密なので，$A \subset P_{\kappa,\theta}$と仮定してもよい．
+		$\delta < \theta$を各$a \in A$について$a$の定義域の上限より大きいものとする($\cf(\theta) > \kappa$よりこれはある)．
+		このような$(x, \delta)$を「適切な組」と呼ぶことにする．
+		そして
+		\[
+		b_{x,\delta} = \truth{ f^*(\delta) > x }	
+		\]
+		とおく．
+
+		今，$b_{x,\delta}$たちが$\kappa$完備なフィルターを生成することを主張する．
+		それを示すために，$(x_i, \delta_i : i < \mu)$, $\mu < \kappa$を適切な組の列とする．
+		$\bigwedge_{i < \mu} b_{x_i, \delta_i} \ne \emptyset$を示す必要がある．
+		集合$\{\delta_i : i < \mu\}$の元を単調増加かつ重複なしに$(\delta^\ell : \ell < \gamma)$, $\gamma \le \mu$と並べる．
+		$A_\ell = \{ i < \mu : \delta_i = \delta^l \}$とおく．
+		条件$q_\ell$が与えられたときに$q_{\ell+1} \in P_{\kappa, \theta}$を次のように定める：
+		\begin{enumerate}
+			\item $q_{\ell+1} \le q_{\ell}$
+			\item $\delta^\ell \in \supp(q_{\ell+1}) \subset \delta^\ell \cup \{\delta^\ell \}$
+			\item $q_{\ell+1} \upharpoonright \delta^\ell$はすべての$i < A^\ell$について$x_i$の値を$\alpha_i$に決定する．
+			\item $q^{\ell+1}(\delta^\ell) = \sup_{i\in A_\ell}(\alpha_i)+1$
+		\end{enumerate}
+		この構成は$q_{\ell+1}$が各$i \in A_\ell$について$b_{x_i, \delta_i}$より強いことを保証する．
+		極限順序数$\ell \le \gamma$についてはそこまで構成した条件の和集合をとる．
+		すると$q_\gamma$は各$b_{x_i, \delta_i}$より強い条件となり主張が証明された．
+
+		さて，$\kappa$が強コンパクトなので，$b_{x, \delta}$ ($(x, \delta)$は適切な組)が生成する$\kappa$完備フィルターを拡大して，$\kappa$完備ウルトラフィルター$U$を得ることができる．
+		すると列$(f^*(\delta)^U : \delta < \theta)$は狭義単調増加かつ共終である ($\delta < \delta'$に対して$(f^*(\delta), \delta')$は適切であり，適切な組の$b$は$U$に入れていることから)．
+		よって，$\cf(j(\kappa)) = cf(\theta)$かつ$j(\kappa) \ge \theta$を得る．
+
+		2番について．
+		$j(\mu)$の元を表すBUP名前の数を勘定すればよい．
+		反鎖は$P_{\kappa,\theta}$の部分集合としてよかったので，$\abs{P_{\kappa,\theta}} = \theta$を考えると，$j(\mu)$の元を表すBUP名前の数は
+		\[
+			[\theta]^\kappa \times \mu^\kappa = \max(\theta, \kappa)^\kappa
+		\]
+		で抑えられる．したがって，
+		\[
+		\abs{j(\mu)} \le \max(\theta, \kappa)^\kappa.
+		\]
 	\end{proof}
 
 	\nocite{*}
