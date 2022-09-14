@@ -594,17 +594,51 @@
 	\end{enumerate}
 	\end{fact}
 	\begin{proof}
-		一つだけ示してみよう。$\alpha < \kappa$について$j(\alpha) = \alpha$を示す。
-		背理法で、$j(\alpha) > \alpha$となる$\alpha$が存在するとして、そのような最小を取る。
-		$\alpha \in j(\alpha) \in M$で$M$は推移的なので$\alpha \in M$である。
-		そこでBUP名前$x$をとって$j(x) = \alpha$となる。
-		$j(x) \in j(\alpha)$だからŁośの定理より$\truth{\check{x} \in \check{\alpha}} \in U$となる。
-		今ブール値$\truth{\check{x} \in \check{\alpha}}$は$\bigvee_{\beta \in \alpha} \truth{\check{x} = \check{\beta}}$に等しいことと、$U$の$\kappa$完備性より、ある$\beta < \alpha$があって、$\truth{\check{x} = \check{\beta}} \in U$となる。
-		Łośの定理をもう一度使うと$j(\beta) = j(x) = \alpha$。今$\beta$の最小性より$j(\beta) = \beta$だから$\beta = j(\beta) = j(x) = \alpha$となって、$\beta < \alpha$に反する。
+		一つだけ示してみよう．$\alpha < \kappa$について$j(\alpha) = \alpha$を示す．
+		背理法で，$j(\alpha) > \alpha$となる$\alpha$が存在するとして，そのような最小を取る．
+		$\alpha \in j(\alpha) \in M$で$M$は推移的なので$\alpha \in M$である．
+		そこでBUP名前$x$をとって$j(x) = \alpha$となる．
+		$j(x) \in j(\alpha)$だからŁośの定理より$\truth{\check{x} \in \check{\alpha}} \in U$となる．
+		今ブール値$\truth{\check{x} \in \check{\alpha}}$は$\bigvee_{\beta \in \alpha} \truth{\check{x} = \check{\beta}}$に等しいことと，$U$の$\kappa$完備性より，ある$\beta < \alpha$があって，$\truth{\check{x} = \check{\beta}} \in U$となる．
+		Łośの定理をもう一度使うと$j(\beta) = j(x) = \alpha$．今$\beta$の最小性より$j(\beta) = \beta$だから$\beta = j(\beta) = j(x) = \alpha$となって，$\beta < \alpha$に反する．
 	\end{proof}
 
-	$V$の元$Y$について、$Y$の元を表す強制名前はBUP名前$x$でその値域$\range(x)$が$Y$の部分集合であるものとして書ける。
-	そのようなBUP名前を\textbf{$j(Y)$の元を表すBUP名前}と呼ぶことにする (そのような名前$x$について$x^U$は$j(Y)$の元であるため)。
+	$V$の元$Y$について，$Y$の元を表す強制名前はBUP名前$x$でその値域$\range(x)$が$Y$の部分集合であるものとして書ける．
+	そのようなBUP名前を\textbf{$j(Y)$の元を表すBUP名前}と呼ぶことにする (そのような名前$x$について$x^U$は$j(Y)$の元であるため)．
+
+	\begin{lem}
+		$(S, \le)$を${\le} \kappa$-directedな半順序集合としたとき，$j``S$は$j(S)$の中でcofinalである．
+	\end{lem}
+	\begin{proof}
+		$j(S)$の元を任意にとり，$x^U$とする．
+		先程の注意より，BUP名前$x$は$\range(x) \subset S$としてよい．
+		$\dom(x)$は$B$が$\kappa^+$-ccなことよりサイズ$\kappa$以下なので，$\range(x)$は共通の上界$s_0$を持つ．
+		すると$\truth{x \le s_0} = 1_B$となるので，$(M^-, \in^-) \models [x] \le \check{s_0}$.
+		したがって，$x^U \le j(s_0)$となる．
+	\end{proof}
+
+	\begin{defi}
+		\textbf{BUP埋め込み}とは，初等埋め込み$j \colon V \to M$ ($M$は推移的)であって，クリティカルポイント$\kappa$を持つものであって，
+		$M$は${<}\kappa$-closedかつ，どんな${\le}\kappa$-directedな半順序集合$S$についても$j``S$は$j(S)$内でcofinalになるものである．
+	\end{defi}
+
+	よって，$\kappa$-分配的かつ$\kappa^+$-cc原子なし完備ブール代数と$\kappa$完備ウルトラフィルターに対する上で定義した埋め込みはBUP埋め込みである．
+
+	\begin{lem}
+		$j$をBUP埋め込みで$\crit(j) = \kappa$なものとする．
+		\begin{enumerate}
+			\item $\abs{A} < \kappa$ならば，$j``A = j(A)$である．
+			\item ある正則基数$\lambda < \kappa$について$S$が${<}\lambda$-directedな半順序であるとき，$j(S)$は${<}\lambda$-directedである．
+			\item $\cf(\alpha) \ne \kappa$なる極限順序数$\alpha$について，$j``\alpha$は$j(\alpha)$の中で共終．よって特に$\cf(j(\alpha)) = \cf(\alpha)$.
+		\end{enumerate}
+	\end{lem}
+	\begin{proof}
+		1つ目．$f \colon \lambda \to A$全単射と$\lambda < \kappa$をとる．
+		すると$M$で$j(f) \colon \lambda \to j(A)$ 全単射が成り立つ．
+		よって，$x \in j(A)$とすると$\alpha < \lambda$がとれて$x = j(f)(\alpha)$だが，$j(f)(\alpha) = j(f(\alpha))$なので，これで良い．
+
+		2つ目．$M$で$j(S)$は${<}\lambda$-directedな半順序なことが成り立ち，$M$が${<}\kappa$-closedなことを使うとよい．
+	\end{proof}
 
 	\nocite{*}
 	\printbibliography[title={参考文献}]
