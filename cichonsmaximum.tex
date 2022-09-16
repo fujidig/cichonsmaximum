@@ -115,6 +115,15 @@
 \renewcommand{\proofname}{証明}
 
 
+\newcommand{\todo}[1][]{%
+	\ifthenelse{\equal{#1}{}}{%
+		\textcolor{red}{[TODO]}%
+	}{%
+		\textcolor{red}{[TODO: #1]}%
+	}%
+}
+
+
 \usepackage[backend=biber,style=alphabetic,sorting=nty,doi=false,isbn=false,url=false,eprint=true]{biblatex}
 \addbibresource{cichonsmaximum.bib}
 \renewbibmacro{in:}{}
@@ -423,14 +432,14 @@
 		\end{enumerate}
 	\end{fact}
 
-	\begin{fact}
+	\begin{fact}\label{fact:goodness}
 	\begin{enumerate}
 		\item $\sigma$-centeredかランダム強制法の部分ブール代数である強制法は$\aleph_1$-$\relR_1$-goodである．
 		\item $\sigma$-centeredな強制法は$\aleph_1$-$\relR_2$-goodである．
 	\end{enumerate}
 	\end{fact}
 
-	\begin{lem}
+	\begin{lem}\label{lem:cohenreals}
 		$\relR = (X, Y, \sqsubset)$をポーランド関係システムとする．
 		$\lambda \le \kappa \le \mu$を全て非可算正則基数とする．
 		$\mu$個のCohen実数$(c_\alpha : \alpha < \mu)$を加えた後に，$\lambda$-$\relR$-good強制法で強制拡大したモデルにおいて，どんな実数$y \in Y$についても，
@@ -475,7 +484,7 @@
 		となる．
 	\end{defi}
 
-	$\EUB(\relR, P, \gamma)$は$\COB(\relR, P, \cf(\gamma), \cf(\gamma))$と同値なことに注意する．
+	$\EUB(\relR, P, \gamma)$は$\COB(\relR^\perp, P, \cf(\gamma), \cf(\gamma))$と同値なことに注意する．
 	
 	\begin{lem}\label{lem:cobimpliesineq}
 		$\COB(\relR, P, \lambda, \mu)$は$P \forces (\frakb_\relR \ge \lambda \AND \frakd_\relR \le \mu)$を含意する．
@@ -548,6 +557,29 @@
 		\end{flalign*}
 		であるものとする．
 	\end{defi}
+
+	事実 \ref{fact:goodness}より$\Pa$は$i\in\{1,2,4\}$について$(\lambda_i, \relR_i)$-goodである。
+	したがって補題 \ref{lem:cohenreals}より次が従う。
+
+	\begin{lem}
+		$i \in \{1,2,4\}$と正則基数$\kappa \in [\lambda_i, \lambda_5]$について$\EUB(\relR, \Pa, \kappa)$が成り立つ。
+	\end{lem}
+
+	\begin{lem}
+		$i \in \{1,2,3,4\}$について$\COB(\relR, \Pa, \lambda_i, \lambda_5)$が成り立つ。
+	\end{lem}
+	\begin{proof}
+		$S=S^i$とおき、$S$上の順序$\prec$を$s\prec t \iff w_s\subsetneq w_t$で定める。
+		$\lambda_i$が正則なので$(S,\prec)$は${<}\lambda_i$-directedである。
+		$\dot{y}_s$を$s$で追加されるジェネリック実数とする (たとえば、$i=2$のときは部分的ランダム実数)。
+		$\Pa$名前$\dot{x}$はBorelな方法で 
+		ジェネリック実数たちの可算な添字の集合$w^*\subseteq \delta$による部分列のみに依存する。
+		$s\in S^i$であって$w_s\supseteq w^*$となるものをとる。
+		$t\succ s$を任意にとる。
+		このとき$w_t\supseteq w_s$なので$w_t$は$\dot{x}$を計算するためのすべての情報を含む。
+		よって、$\Pa \forces \dot{x} \sqsubset_i \dot{y}_t$を得る。
+	\end{proof}
+	
 	
 	\section{ブール超冪}
 	
@@ -696,17 +728,17 @@
 
 		さて，$\kappa$が強コンパクトなので，$b_{x, \delta}$ ($(x, \delta)$は適切な組)が生成する$\kappa$完備フィルターを拡大して，$\kappa$完備ウルトラフィルター$U$を得ることができる．
 		すると列$(f^*(\delta)^U : \delta < \theta)$は狭義単調増加かつ共終である ($\delta < \delta'$に対して$(f^*(\delta), \delta')$は適切であり，適切な組の$b$は$U$に入れていることから)．
-		よって，$\cf(j(\kappa)) = cf(\theta)$かつ$j(\kappa) \ge \theta$を得る．
+		よって，$\cf(j(\kappa)) = \cf(\theta)$かつ$j(\kappa) \ge \theta$を得る．
 
 		2番について．
 		$j(\mu)$の元を表すBUP名前の数を勘定すればよい．
 		反鎖は$P_{\kappa,\theta}$の部分集合としてよかったので，$\abs{P_{\kappa,\theta}} = \theta$を考えると，$j(\mu)$の元を表すBUP名前の数は
 		\[
-			[\theta]^\kappa \times \mu^\kappa = \max(\theta, \kappa)^\kappa
+			[\theta]^\kappa \times \mu^\kappa = \max(\theta, \mu)^\kappa
 		\]
 		で抑えられる．したがって，
 		\[
-		\abs{j(\mu)} \le \max(\theta, \kappa)^\kappa.
+		\abs{j(\mu)} \le \max(\theta, \mu)^\kappa.
 		\]
 	\end{proof}
 
@@ -724,8 +756,33 @@
 		ある$\mu < \kappa$について$P$は$\mu$-ccであると仮定する．
 		\begin{enumerate}
 			\item $j(P)$は$\mu$-cc．
+			\item $\tau$が$M[G]$の元を表す$j(P)$名前ならば，$j(P)$名前が$\sigma$が$M$の中にあって$j(P) \forces \tau=\sigma$となる．
+			\item \todo
 		\end{enumerate}
 	\end{prop}
+	\begin{proof}
+		1番について．$A \subset j(P)$がサイズ$\mu$だとしたら，$A \in M$である．そして初等性より$A$は反鎖でない．
+
+		2番について．
+
+		\todo
+	\end{proof}
+
+	\begin{lem}
+		$\relR$をポーランド関係システムとし、$P$をccc強制法とし、$j$をBUP埋め込みで臨界点$\kappa$を持つものとする。
+		このとき、$\EUB(\relR, P, \delta)$は$\EUB(\relR, j(P), j(\delta))$を導く。
+		特に正則基数$\lambda \ne \kappa$について、$\EUB(\relR, P, \lambda)$は$\EUB(\relR, j(P), \lambda)$を導く。
+	\end{lem}
+	\begin{proof}
+		$\bar{x} = (x_\alpha : \alpha < \delta)$を$\EUB(\relR, P, \delta)$の証拠となる$P$名前の列とする。
+		このとき初等性よりMで次が成り立つ：
+		\[
+			\text{すべての}j(P)\text{名前}y\text{について}(\exists \alpha < j(\delta))(\forall \beta \in j(\delta) \setminus \alpha) \neg(j(\bar{x})_\beta \sqsubset_i 	y).
+		\]
+		これは絶対的なので、$j(\bar{x})$は$\EUB(\relR, j(P), j(\delta))$の証拠である。
+
+		後半の主張は正則な$\lambda \ne \kappa$については$\cf(j(\lambda)) = \lambda$であったことと$\EUB(\relR, P, \delta) \iff \EUB(\relR, P, \cf(\delta))$より分かる。
+	\end{proof}
 
 	\nocite{*}
 	\printbibliography[title={参考文献}]
