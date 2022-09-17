@@ -69,6 +69,7 @@
 \newcommand{\ZF}{\mathrm{ZF}}
 \newcommand{\AD}{\mathrm{AD}}
 \newcommand{\DC}{\mathrm{DC}}
+\newcommand{\GCH}{\mathrm{GCH}}
 \newcommand{\proj}{\operatorname{proj}}
 \newcommand{\cf}{\operatorname{cf}}
 \newcommand{\EUB}{\mathsf{EUB}}
@@ -78,6 +79,7 @@
 \newcommand{\Pa}{\mathbb{P}^5}
 \newcommand{\crit}{\operatorname{crit}}
 \newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Eor}{\mathbb{E}}
 
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
@@ -112,6 +114,7 @@
 \newtheorem{conj}[thm]{予想}
 \newtheorem{property}[thm]{性質}
 \newtheorem{assumption}[thm]{仮定}
+\newtheorem{observation}[thm]{観察}
 \renewcommand{\proofname}{証明}
 
 
@@ -502,6 +505,8 @@
 	上の注意と補題\ref{lem:cobimpliesineq}より$\EUB(\relR, P, \lambda)$は$P \forces (\frakb_\relR \le \lambda \AND \frakd_\relR \ge \lambda)$を含意する．
 	
 	\section{Cichońの図式の左半分}
+	
+	\subsection{初めの強制法$\Pa$}
 
 	これから「部分的アメーバ強制法」「部分的ランダム強制法」「部分的Hechler強制法」「部分的eventually different強制法」を定義する．
 	そのために，性質\ref{property:hasgenericreal}を持つ強制法の有限台反復$(P_\alpha, Q_\alpha : \alpha < \delta)$を考える．
@@ -580,6 +585,50 @@
 		よって、$\Pa \forces \dot{x} \sqsubset_i \dot{y}_t$を得る。
 	\end{proof}
 	
+	\subsection{$\frakb$を$\GCH$なしで取り扱う}
+	
+	前の節の内容では$\EUB(\relR_3, \Pa, \kappa)$ (これは$\frakb$が小さいことに対応する)が抜けていたことに注意しよう。
+	適切にパラメータ$(w_\alpha)_{\alpha \in S^4}$を選ぶことでこの$\EUB$も得られることをこの節と次の節で見ていく。
+	
+	この節に限って、仮定 \ref{asm:P}に加えて次も仮定する。
+	
+	\begin{assumption}\label{asm:chi}
+		(この節限定) $2^\chi =|\delta_5|= \lambda_5$.
+	\end{assumption}
+	
+	$S^0=\lambda_5\cup S^1\cup S^2\cup S^3$とおく。
+	よって$\delta_5=S^0\cup S^4$であり、$\Pa$ は長さ$\delta_5$のFS ccc反復であり、$\alpha\in S^0$は$\abs{Q_\alpha}<\lambda_3$を含意する。すなわち$\abs{Q_\alpha}\le\chi$を含意する。
+	$\alpha \in S^0$に対して$P_\alpha$名前
+	\begin{equation}\label{eq:ia}
+		i_\alpha:Q_\alpha\to\chi\text{ 単射}
+	\end{equation}
+	を固定する。
+	
+	各条件$p\in \Pa$はある条件$q$に強めて$\alpha\in \supp(q)\cap S^0$ならば $q\restriction\alpha\forces i_\alpha(q(\alpha))=\check \jmath$ for some 
+	$j\in\chi$となるようにできることに注意しておく。
+	
+	eventually different強制法について再掲しておく。
+	$\mathbb{E} = \{ (s,k,\varphi) : s \in \omega^{<\omega}, k \in \omega, \varphi \colon \omega \to [\omega]^{\le k}, (\forall i \in \dom(s))(s(i) \not \in \varphi(i)) \}$で順序を
+	\[
+	(s', k', \varphi') \le (s, k, \varphi) \iff s \subset s' \land k \le k' \land (\forall i)(\varphi(i) \subset \varphi'(i))
+	\]
+	を入れたものをeventually different強制法という．	
+	$\mathbb{E}$ジェネリックフィルター$G$から作られる実数$e = \bigcup \{ s  : (s, k, \varphi) \in G \}$をeventually different generic実数という。
+	$(s, k, \varphi) \in \mathbb{E}$に対して$s$を\textbf{幹}、$k$を\textbf{幅}と呼ぶことにする。
+	
+	次の性質たちは容易に観察できる。
+	\begin{observation}
+	\begin{itemize}
+		\item \label{compat.a} もし$p,q\in \Eor$が両立可能ならばそれらは最大の共通下界を持つ。 
+		\item \label{compat.b} 同じ幹を持つ有限個の条件について、それらは同じ幹の共通下界を持つ。よって、$\Eor$は$\sigma$-centeredである。
+		\item もし$q=(s',k',\varphi')$かつ$p=(s,k,\varphi)$であって$s'$が$s$の延長であるならば、$p$と$q$が両立可能であるのは、ちょうど
+		$s'(i)\notin \varphi(i)$ for all $i\in\dom(s')$であるときである。
+		\item  \label{compat.c}  もし$q^* =(s^*,k^*,\varphi^ *)$が有限集合$B\subseteq \Eor$のすべての元と両立可能ならばかつ$s^*$が各$(s,k,\varphi)\in B$について$s$の延長ならば、$B\cup \{q^*\}$は下界を持つ。 
+		($s^*$を幹として使い、$B\cup \{q^ *\}$に現れるすべての$\varphi$のpointwiseの和集合をとればよい。)
+	\end{itemize}
+	\end{observation}
+	
+	\subsection{$\GCH$を復活させる}
 	
 	\section{ブール超冪}
 	
