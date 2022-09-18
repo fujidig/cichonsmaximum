@@ -563,70 +563,124 @@
 		であるものとする．
 	\end{defi}
 
-	事実 \ref{fact:goodness}より$\Pa$は$i\in\{1,2,4\}$について$(\lambda_i, \relR_i)$-goodである。
-	したがって補題 \ref{lem:cohenreals}より次が従う。
+	事実 \ref{fact:goodness}より$\Pa$は$i\in\{1,2,4\}$について$(\lambda_i, \relR_i)$-goodである．
+	したがって補題 \ref{lem:cohenreals}より次が従う．
 
 	\begin{lem}
-		$i \in \{1,2,4\}$と正則基数$\kappa \in [\lambda_i, \lambda_5]$について$\EUB(\relR, \Pa, \kappa)$が成り立つ。
+		$i \in \{1,2,4\}$と正則基数$\kappa \in [\lambda_i, \lambda_5]$について$\EUB(\relR, \Pa, \kappa)$が成り立つ．
 	\end{lem}
 
 	\begin{lem}
-		$i \in \{1,2,3,4\}$について$\COB(\relR, \Pa, \lambda_i, \lambda_5)$が成り立つ。
+		$i \in \{1,2,3,4\}$について$\COB(\relR, \Pa, \lambda_i, \lambda_5)$が成り立つ．
 	\end{lem}
 	\begin{proof}
-		$S=S^i$とおき、$S$上の順序$\prec$を$s\prec t \iff w_s\subsetneq w_t$で定める。
-		$\lambda_i$が正則なので$(S,\prec)$は${<}\lambda_i$-directedである。
-		$\dot{y}_s$を$s$で追加されるジェネリック実数とする (たとえば、$i=2$のときは部分的ランダム実数)。
+		$S=S^i$とおき，$S$上の順序$\prec$を$s\prec t \iff w_s\subsetneq w_t$で定める．
+		$\lambda_i$が正則なので$(S,\prec)$は${<}\lambda_i$-directedである．
+		$\dot{y}_s$を$s$で追加されるジェネリック実数とする (たとえば，$i=2$のときは部分的ランダム実数)．
 		$\Pa$名前$\dot{x}$はBorelな方法で 
-		ジェネリック実数たちの可算な添字の集合$w^*\subseteq \delta$による部分列のみに依存する。
-		$s\in S^i$であって$w_s\supseteq w^*$となるものをとる。
-		$t\succ s$を任意にとる。
-		このとき$w_t\supseteq w_s$なので$w_t$は$\dot{x}$を計算するためのすべての情報を含む。
-		よって、$\Pa \forces \dot{x} \sqsubset_i \dot{y}_t$を得る。
+		ジェネリック実数たちの可算な添字の集合$w^*\subseteq \delta$による部分列のみに依存する．
+		$s\in S^i$であって$w_s\supseteq w^*$となるものをとる．
+		$t\succ s$を任意にとる．
+		このとき$w_t\supseteq w_s$なので$w_t$は$\dot{x}$を計算するためのすべての情報を含む．
+		よって，$\Pa \forces \dot{x} \sqsubset_i \dot{y}_t$を得る．
 	\end{proof}
 	
 	\subsection{$\frakb$を$\GCH$なしで取り扱う}
 	
-	前の節の内容では$\EUB(\relR_3, \Pa, \kappa)$ (これは$\frakb$が小さいことに対応する)が抜けていたことに注意しよう。
-	適切にパラメータ$(w_\alpha)_{\alpha \in S^4}$を選ぶことでこの$\EUB$も得られることをこの節と次の節で見ていく。
+	前の節の内容では$\EUB(\relR_3, \Pa, \kappa)$ (これは$\frakb$が小さいことに対応する)が抜けていたことに注意しよう．
+	適切にパラメータ$(w_\alpha)_{\alpha \in S^4}$を選ぶことでこの$\EUB$も得られることをこの節と次の節で見ていく．
 	
-	この節に限って、仮定 \ref{asm:P}に加えて次も仮定する。
+	この節に限って，仮定 \ref{asm:P}に加えて次も仮定する．
 	
 	\begin{assumption}\label{asm:chi}
 		(この節限定) $2^\chi =|\delta_5|= \lambda_5$.
 	\end{assumption}
 	
-	$S^0=\lambda_5\cup S^1\cup S^2\cup S^3$とおく。
-	よって$\delta_5=S^0\cup S^4$であり、$\Pa$ は長さ$\delta_5$のFS ccc反復であり、$\alpha\in S^0$は$\abs{Q_\alpha}<\lambda_3$を含意する。すなわち$\abs{Q_\alpha}\le\chi$を含意する。
+	$S^0=\lambda_5\cup S^1\cup S^2\cup S^3$とおく．
+	よって$\delta_5=S^0\cup S^4$であり，$\Pa$ は長さ$\delta_5$のFS ccc反復であり，$\alpha\in S^0$は$\abs{Q_\alpha}<\lambda_3$を含意する．すなわち$\abs{Q_\alpha}\le\chi$を含意する．
 	$\alpha \in S^0$に対して$P_\alpha$名前
 	\begin{equation}\label{eq:ia}
 		i_\alpha:Q_\alpha\to\chi\text{ 単射}
 	\end{equation}
-	を固定する。
+	を固定する．
 	
 	各条件$p\in \Pa$はある条件$q$に強めて$\alpha\in \supp(q)\cap S^0$ならば $q\restriction\alpha\forces i_\alpha(q(\alpha))=\check \jmath$ for some 
-	$j\in\chi$となるようにできることに注意しておく。
+	$j\in\chi$となるようにできることに注意しておく．
 	
-	eventually different強制法について再掲しておく。
+	eventually different強制法について再掲しておく．
 	$\mathbb{E} = \{ (s,k,\varphi) : s \in \omega^{<\omega}, k \in \omega, \varphi \colon \omega \to [\omega]^{\le k}, (\forall i \in \dom(s))(s(i) \not \in \varphi(i)) \}$で順序を
 	\[
 	(s', k', \varphi') \le (s, k, \varphi) \iff s \subset s' \land k \le k' \land (\forall i)(\varphi(i) \subset \varphi'(i))
 	\]
 	を入れたものをeventually different強制法という．	
-	$\mathbb{E}$ジェネリックフィルター$G$から作られる実数$e = \bigcup \{ s  : (s, k, \varphi) \in G \}$をeventually different generic実数という。
-	$(s, k, \varphi) \in \mathbb{E}$に対して$s$を\textbf{幹}、$k$を\textbf{幅}と呼ぶことにする。
+	$\mathbb{E}$ジェネリックフィルター$G$から作られる実数$e = \bigcup \{ s  : (s, k, \varphi) \in G \}$をeventually different generic実数という．
+	$(s, k, \varphi) \in \mathbb{E}$に対して$s$を\textbf{幹}，$k$を\textbf{幅}と呼ぶことにする．
 	
-	次の性質たちは容易に観察できる。
+	次の性質たちは容易に観察できる．
 	\begin{observation}
 	\begin{itemize}
-		\item \label{compat.a} もし$p,q\in \Eor$が両立可能ならばそれらは最大の共通下界を持つ。 
-		\item \label{compat.b} 同じ幹を持つ有限個の条件について、それらは同じ幹の共通下界を持つ。よって、$\Eor$は$\sigma$-centeredである。
-		\item もし$q=(s',k',\varphi')$かつ$p=(s,k,\varphi)$であって$s'$が$s$の延長であるならば、$p$と$q$が両立可能であるのは、ちょうど
-		$s'(i)\notin \varphi(i)$ for all $i\in\dom(s')$であるときである。
-		\item  \label{compat.c}  もし$q^* =(s^*,k^*,\varphi^ *)$が有限集合$B\subseteq \Eor$のすべての元と両立可能ならばかつ$s^*$が各$(s,k,\varphi)\in B$について$s$の延長ならば、$B\cup \{q^*\}$は下界を持つ。 
-		($s^*$を幹として使い、$B\cup \{q^ *\}$に現れるすべての$\varphi$のpointwiseの和集合をとればよい。)
+		\item \label{compat.a} もし$p,q\in \Eor$が両立可能ならばそれらは最大の共通下界を持つ． 
+		\item \label{compat.b} 同じ幹を持つ有限個の条件について，それらは同じ幹の共通下界を持つ．よって，$\Eor$は$\sigma$-centeredである．
+		\item もし$q=(s',k',\varphi')$かつ$p=(s,k,\varphi)$であって$s'$が$s$の延長であるならば，$p$と$q$が両立可能であるのは，ちょうど
+		$s'(i)\notin \varphi(i)$ for all $i\in\dom(s')$であるときである．
+		\item  \label{compat.c}  もし$q^* =(s^*,k^*,\varphi^ *)$が有限集合$B\subseteq \Eor$のすべての元と両立可能ならばかつ$s^*$が各$(s,k,\varphi)\in B$について$s$の延長ならば，$B\cup \{q^*\}$は下界を持つ． 
+		($s^*$を幹として使い，$B\cup \{q^ *\}$に現れるすべての$\varphi$のpointwiseの和集合をとればよい．)
 	\end{itemize}
 	\end{observation}
+
+	我々は$\Eor$ではなく$\Eor$の部分的バージョンで強制する．
+	$\alpha \in S^4$に対する$P_\alpha$拡大において，この部分強制$Q_\alpha=\Eor'$は
+	(必ずしも完備埋め込みでない)$\Eor$の部分強制法であり，conjunctionで閉じている
+	(すなわち，条件の有限集合について最大下界を取る部分操作で閉じている)．
+	よって両立可能性は$\Eor$で見ても$\Eor'$で見ても変わらない．
+	そして先程の観察は$\Eor'$に対しても成り立つ．後の参照のために最後の項目を明示的に主張しておく．
+	
+	
+	\begin{fact}\label{fact:bla}
+		$\Eor'\subseteq \Eor$がconjuctionで閉じているものとする．
+		もし条件$q^* =(s^*,k^*,\varphi^ *) \in \Eor'$が有限集合$B\subseteq \Eor'$のどの元とも両立可能かつ$s^*$が各$(s,k,\varphi)\in B$に対する$s$の延長ならば$B\cup \{q^*\}$は下界を$\Eor'$に持つ． 
+	\end{fact}
+
+
+	\begin{defi}
+		$D$を$\omega$上の非単項ウルトラフィルターとし$\bar p = 
+		(p_n)_{n\in \omega} = (s,k,\varphi_n)_{n\in \omega}$を$\Eor$の条件の列であって，同じ幹と幅を持つものとする． 
+		$\lim_D\bar p$という条件を$(s,k,\varphi_\infty)$であって，すべての$i$と$j$について
+		$
+		j\in \varphi_\infty(i) \Leftrightarrow \{ n: j\in \varphi_n(i)\}\in D
+		$.
+		となるものとして定める．
+	\end{defi}
+
+	$\lim_D\bar p\in\Eor$である．また，$q\le \lim_D \bar p$ならば集合$B\coloneq\{ n\in \omega:\, p_n \text{ compatible with } q\}$は$D$の元である．
+	
+	(証明: $q=(s',k',\varphi')\le \lim_D\bar p=(s,k,\varphi_\infty)$とする．よって各$i\in\dom(s')$について$s'(i)\notin \varphi_\infty(i)$であり，極限の定義より$A^i \coloneq\{n:\, s'(i)\notin \varphi_n(i)\}\in D$である．もし$n\in\bigcap_{i\in\dom(s')} A^i$ならば$p_n$は$q$と両立する．)
+	
+	
+	集合$B$は両立可能性のみを使って定義されているので，両立可能性を保存する部分強制に対してなお主張は成り立つ．
+	後の参照のためにこれを述べておく：
+	\begin{fact}\label{fact:blubb4}
+		$\Eor'$がconjunctionで閉じた$\Eor$の部分強制で$\bar p$が$\Eor'$の条件の列で同じ幹と幅を持つものとし，$\lim_D(\bar p)\in \Eor'$と$q\le_{\Eor'} \lim_D(\bar p)$を仮定する．
+		このとき
+		$B\coloneq\{ n\in \omega:\, p_n \text{ compatible with } q\}$は$D$の元である．
+	\end{fact}
+		
+		\begin{defi}
+			\begin{itemize}
+				\item \textbf{部分的なガードレール}とは関数$h$でその定義域は$\delta_5$の部分集合であり，$\alpha\in S^0\cap\dom(h)$について$h(\alpha)\in \chi$でかつ，$\alpha\in S^4\cap\dom(h)$について$h(\alpha)
+				\in \omega^{<\omega}\times \omega$であるものである．
+				\item \textbf{可算なガードレール}とは部分的なガードレールであって可算な定義域を持つものである．
+				\textbf{フルガードレール}とは部分的ガードレールで定義域が$\delta_5$なものである．
+			\end{itemize}
+		\end{defi}
+	
+	EngelkingとKar{\l}owicz \cite{engelking1965some}は位相空間のボックス積のdensityを調べるために次の補題を証明した．我々はこの結果を使う．
+	
+	\begin{lem}
+		$\theta, \mu$を無限基数とし$\mu^{<\theta} = \mu$とする．
+		このとき，関数の族$(f_\xi : \xi < \mu)$であって各$f_\xi \colon 2^\mu \to \mu$であって，
+		どんな関数$f$であって$\dom(f) \in [2^\mu]^{<\theta}$かつ$\range(f) \subset \mu$なものについてもある$\xi < \mu$があって$f \subset f_\xi$である．
+	\end{lem}
 	
 	\subsection{$\GCH$を復活させる}
 	
@@ -818,19 +872,19 @@
 	\end{proof}
 
 	\begin{lem}
-		$\relR$をポーランド関係システムとし、$P$をccc強制法とし、$j$をBUP埋め込みで臨界点$\kappa$を持つものとする。
-		このとき、$\EUB(\relR, P, \delta)$は$\EUB(\relR, j(P), j(\delta))$を導く。
-		特に正則基数$\lambda \ne \kappa$について、$\EUB(\relR, P, \lambda)$は$\EUB(\relR, j(P), \lambda)$を導く。
+		$\relR$をポーランド関係システムとし，$P$をccc強制法とし，$j$をBUP埋め込みで臨界点$\kappa$を持つものとする．
+		このとき，$\EUB(\relR, P, \delta)$は$\EUB(\relR, j(P), j(\delta))$を導く．
+		特に正則基数$\lambda \ne \kappa$について，$\EUB(\relR, P, \lambda)$は$\EUB(\relR, j(P), \lambda)$を導く．
 	\end{lem}
 	\begin{proof}
-		$\bar{x} = (x_\alpha : \alpha < \delta)$を$\EUB(\relR, P, \delta)$の証拠となる$P$名前の列とする。
+		$\bar{x} = (x_\alpha : \alpha < \delta)$を$\EUB(\relR, P, \delta)$の証拠となる$P$名前の列とする．
 		このとき初等性よりMで次が成り立つ：
 		\[
 			\text{すべての}j(P)\text{名前}y\text{について}(\exists \alpha < j(\delta))(\forall \beta \in j(\delta) \setminus \alpha) \neg(j(\bar{x})_\beta \sqsubset_i 	y).
 		\]
-		これは絶対的なので、$j(\bar{x})$は$\EUB(\relR, j(P), j(\delta))$の証拠である。
+		これは絶対的なので，$j(\bar{x})$は$\EUB(\relR, j(P), j(\delta))$の証拠である．
 
-		後半の主張は正則な$\lambda \ne \kappa$については$\cf(j(\lambda)) = \lambda$であったことと$\EUB(\relR, P, \delta) \iff \EUB(\relR, P, \cf(\delta))$より分かる。
+		後半の主張は正則な$\lambda \ne \kappa$については$\cf(j(\lambda)) = \lambda$であったことと$\EUB(\relR, P, \delta) \iff \EUB(\relR, P, \cf(\delta))$より分かる．
 	\end{proof}
 
 	\nocite{*}
