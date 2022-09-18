@@ -80,7 +80,8 @@
 \newcommand{\crit}{\operatorname{crit}}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\Eor}{\mathbb{E}}
-
+\newcommand{\ve}{\varepsilon}
+\newcommand{\on}{\mathord\upharpoonright}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \newcommand{\seq}[1]{{\langle#1\rangle}}
@@ -676,12 +677,32 @@
 	
 	EngelkingとKar{\l}owicz \cite{engelking1965some}は位相空間のボックス積のdensityを調べるために次の補題を証明した．我々はこの結果を使う．
 	
-	\begin{lem}
+	\begin{lem}\label{lem:ek}
 		$\theta, \mu$を無限基数とし$\mu^{<\theta} = \mu$とする．
 		このとき，関数の族$(f_\xi : \xi < \mu)$であって各$f_\xi \colon 2^\mu \to \mu$であって，
 		どんな関数$f$であって$\dom(f) \in [2^\mu]^{<\theta}$かつ$\range(f) \subset \mu$なものについてもある$\xi < \mu$があって$f \subset f_\xi$である．
 	\end{lem}
-	
+
+	補題\ref{lem:ek}より次が従う．
+
+	\begin{lem}\label{use.EK}
+		($|\delta_5|\le 2^\chi$ and $\chi^{\aleph_0}=\chi$なので，)フルガードレールの族$H^*$で$|H^*|=\chi$なものがあり，各可算ガードレールはある$h\in H^*$に拡大される． 
+		このような族$H^*$を一つ固定し，$(h^*_\ve)_{\ve\in \chi}$と$H^*$の元を枚挙する．
+	\end{lem}
+
+	\begin{defi}
+		条件$p\in \Pa$がフルガードレール$h$に従うとは次の2条件を満たすことをいう．
+		\begin{itemize}
+			\item 
+			すべての$\alpha\in S^0 \cap \dom(p)$について$P_\alpha$は$p(\alpha)\in Q_\alpha$かつ$i_\alpha(p(\alpha)) = h(\alpha)$を強制する ($i_\alpha$は\eqref{eq:ia}で定義されたもの)
+			\item  すべての$\alpha\in S^4\cap \dom(p)$について：
+			\begin{itemize}
+				\item  $p\on\alpha$は$p(\alpha)$の幹と幅の組が$h(\alpha)$に等しいことを強制する．
+				\item $p$は$\alpha$において決定されている．
+			\end{itemize}
+		\end{itemize}       
+	\end{defi}
+		
 	\subsection{$\GCH$を復活させる}
 	
 	\section{ブール超冪}
