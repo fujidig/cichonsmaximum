@@ -552,7 +552,18 @@
 		\end{enumerate}
 	\end{defi}
 
-	ランダム強制法以外のアメーバ・Hechler・eventually different強制法についても$w$-部分的強制法を同様に定義する．
+	次の定義は後の節で使う．
+
+	\begin{defi}
+		\begin{enumerate}
+			\item $(p, q) \in P_\alpha \ast Q_\alpha$が\textbf{位置$\alpha$で決定されている}とはコード$(B, u)$があって，$p$が$q$が$(B,u)$のコードであることを強制することだとする．
+			$(p, q)$が与えられたとき，一般には$q$のコードの$P_\alpha$名前が取れるにすぎないので位置$\alpha$で決定されていないが，$p' \le p$を取って$(p', q)$が位置$\alpha$が決定されているようにすることができる．
+			
+			\item $Q_\alpha$の元を表す\textbf{グラウンドモデルコード列}とはコードの列$(B_n, u_n)_{n \in \omega}$で，$u_n \subset w$なものである．
+		\end{enumerate}
+	\end{defi}
+
+	ランダム強制法以外のアメーバ，Hechler，eventually different強制法についても$w$-部分的強制法を同様に定義する．
 	
 	\begin{assumption}\label{asm:P}
 		$\aleph_1<\lambda_1<\lambda_2<\lambda_3<\lambda_4<\lambda_5$を正則基数たちで
@@ -728,6 +739,16 @@
 			\end{itemize}
 		\end{itemize}       
 	\end{defi}
+
+	
+	我々はFS反復を扱っているので，条件$p$であって各位置$\alpha\in\dom(p)$において決定されているものの集合は稠密である．
+	よって次が成り立つ．
+	\begin{itemize}
+		\item 条件$p$であってあるガードレール$h$が\textbf{存在}して$p$が$h$に従うものは稠密である．
+		\item 
+		各\textbf{固定された}ガードレール$h$について条件$p$であって$h$に従うものの集合はcenteredである．
+	\end{itemize}
+
 		
 	\subsection{$\GCH$を復活させる}
 	
