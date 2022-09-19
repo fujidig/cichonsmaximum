@@ -83,6 +83,17 @@
 \newcommand{\ve}{\varepsilon}
 \newcommand{\on}{\mathord\upharpoonright}
 
+
+\newcommand{\PaIX}{\mathbb{P}^9}
+\newcommand{\covnull}{\cov(\mathcal N)}
+\newcommand{\cofnull}{\cof(\mathcal N)}
+\newcommand{\addnull}{\add(\mathcal N)}
+\newcommand{\nonnull}{\non(\mathcal N)}
+\newcommand{\covmeager}{\cov(\mathcal M)}
+\newcommand{\cofmeager}{\cof(\mathcal M)}
+\newcommand{\addmeager}{\add(\mathcal M)}
+\newcommand{\nonmeager}{\non(\mathcal M)}
+
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \newcommand{\seq}[1]{{\langle#1\rangle}}
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{#1}
@@ -879,9 +890,14 @@
 		$j \colon V \to M$を初等的で，$M$は推移的かつ${<}\kappa$-closedかつ$\crit(j) = \kappa$だとする．
 		ある$\nu < \kappa$について$P$は$\nu$-ccであると仮定する．
 		\begin{enumerate}
-			\item $j(P)$は$\nu$-cc．
-			\item $\tau$が$M[G]$の元を表す$j(P)$名前ならば，$j(P)$名前が$\sigma$が$M$の中にあって$j(P) \forces \tau=\sigma$となる．
-			\item \todo
+			\item\label{item:aa1} $j(P)$は$\nu$-cc．
+			\item\label{item:aa2} $\tau$が$M[G]$の元を表す$j(P)$名前ならば，$j(P)$名前が$\sigma$が$M$の中にあって$j(P) \forces \tau=\sigma$となる．
+			\item\label{item:aa2b}
+			特に、どんな$j(P)$名前であって、実数やボレルコード、実数の可算列を表すものは同値なものが$M$の中にある。
+			\item\label{item:aa3}  $M[G]$は$V[G]$の中で${<}\kappa$-closedである.
+			\item\label{item:size} もし$\xi<\kappa$であって$P$が$2^\xi=\lambda$を強制するならば$j(P)$は$2^\xi=|j(\lambda)|$を強制する。
+			\item\label{item:aa4} 
+			$j''P$ (これは$P$と同型)は$j(P)$の完備部分強制法である。
 		\end{enumerate}
 	\end{prop}
 	\begin{proof}
@@ -892,7 +908,7 @@
 		\]
 		となる．初等性と$j(\nu) = \nu$より
 		\[
-		M \models \forall A \in [P]^\nu \exists p, q \in A (p \ne q \land p \parallel q).
+		M \models \forall A \in [j(P)]^\nu \exists p, q \in A (p \ne q \land p \parallel q).
 		\]
 		$A \subset j(P)$がサイズ$\nu$だとしたら，$M$の${<}\kappa$closedより，$A \in M$である．
 		そこで$M$で$\exists p, q \in A (p \ne q \land p \parallel q)$が成り立つが，これは上向き絶対的であるため， $V$でも成り立つ．
@@ -942,7 +958,36 @@
 		すると\eqref{eq:ff}でのような$s \in j(S)$がとれる．
 		$j''S$が$j(S)$の中でcofinalであったので，$s' \in S$がとれて$j(s') \succ s$となる．
 		すると，どんな$t \succ s'$についても，$j(t) \succ j(s') \succ s$なため，$j(P) \forces x \sqsubset_i j(y_t)$を得る．
-		\end{proof}
+	\end{proof}
+		
+	系として次を得る。
+		
+		
+	\begin{cor}\label{cor:bbb}
+		$j$を$\kappa$から$\theta$へのBUP埋め込みとする。このとき
+		\begin{enumerate}	
+			\item\label{item:linerapreservedcor} 正則な$\lambda\ne\kappa$に対する$\EUB(\relR, P,\lambda)$は$\EUB(\relR, j(P),\lambda)$を含意する。
+			\item\label{item:linerapreservedcorb}
+			$\EUB(\relR, P,\kappa)$は$\EUB(\relR, j(P),\theta)$を含意する。
+			\item\label{item:partialpreservedcor}
+			$\kappa> \lambda$と$\kappa\le\mu\le\theta$に対する$\COB(\relR, P,\lambda,\mu)$は$\COB(\relR, j(P),\lambda,\theta)$を含意する。
+			\item\label{item:partialpreservedcord}
+			$\kappa< \lambda$に対する$\COB(\relR, P,\lambda,\mu)$は$\COB(\relR, j(P),\lambda,\mu)$を含意する。
+		\end{enumerate}
+	\end{cor}
+
+
+	\begin{thm}
+		GCHを仮定し、$\aleph_1<\kappa_9<\lambda_1<\kappa_8<\lambda_2<\kappa_7<\lambda_3<\kappa_6<\lambda_4<\lambda_5<\lambda_6<\lambda_7<\lambda_8<\lambda_9$を正則基数たちで$\lambda_3$は正則基数の後続で$i=1,2,4,5$に対し$\lambda_i$は可算共終数を持つ基数の後続でないとし、$i=6,7,8,9$に対して$\kappa_i$は強コンパクト基数であるとする。
+		するとccc強制法$\PaIX$が存在し、次を強制する：
+		\begin{multline*} 
+			\addnull=\lambda_1 < \covnull =\lambda_2 <\mathfrak{b}=\lambda_3<\nonmeager=\lambda_4<\\ <\covmeager=\lambda_5 < \mathfrak{d}=\lambda_6 < \nonnull=\lambda_7 < \cofnull=\lambda_8< 2^{\aleph_0}=\lambda_9.
+		\end{multline*}
+	\end{thm}
+	\begin{proof}
+		\todo
+	\end{proof}
+
 
 	\nocite{*}
 	\printbibliography[title={参考文献}]
