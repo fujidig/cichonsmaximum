@@ -18,7 +18,7 @@
 \usepackage{mathtools}
 \usepackage[explicit]{titlesec}
 \usepackage{stmaryrd}
-
+\usepackage[all]{xy}
 \usepackage{geometry}
 \geometry{left=35mm,right=35mm,top=35mm,bottom=35mm}
 
@@ -76,7 +76,6 @@
 \newcommand{\COB}{\mathsf{COB}}
 \newcommand{\relR}{\mathbf{R}}
 %\newcommand{\Pa}{\mathbb{P}^\mathrm{pre}}
-\newcommand{\Pa}{\mathbb{P}^5}
 \newcommand{\crit}{\operatorname{crit}}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\Eor}{\mathbb{E}}
@@ -84,7 +83,21 @@
 \newcommand{\on}{\mathord\upharpoonright}
 
 
+\newcommand{\Pa}{\mathbb{P}^5}
+\newcommand{\PaB}{\mathbb{P}^{*,5}}
+\newcommand{\Pai}{\mathbb{P}^i}
+\newcommand{\Paj}{\mathbb{P}^j}
+\newcommand{\Paell}{\mathbb{P}^\ell}
+\newcommand{\Paip}{\mathbb{P}^{i+1}}
+\newcommand{\PaVI}{\mathbb{P}^6}
+\newcommand{\PaVII}{\mathbb{P}^7}
+\newcommand{\PaVIII}{\mathbb{P}^8}
 \newcommand{\PaIX}{\mathbb{P}^9}
+
+
+\newcommand{\mye}{*+[F.]{\phantom{\lambda}}}
+\newcommand{\myb}{*{\phantom{\lambda}}}
+
 \newcommand{\covnull}{\cov(\mathcal N)}
 \newcommand{\cofnull}{\cof(\mathcal N)}
 \newcommand{\addnull}{\add(\mathcal N)}
@@ -503,8 +516,10 @@
 	
 	\begin{lem}\label{lem:cobimpliesineq}
 		$\COB(\relR, P, \lambda, \mu)$は$P \forces (\frakb_\relR \ge \lambda \AND \frakd_\relR \le \mu)$を含意する．
+		また$\EUB(\relR, P, \lambda)$は$P \forces (\frakb_\relR \le \lambda \AND \frakd_\relR \ge \lambda)$を含意する．
 	\end{lem}
 	\begin{proof}
+		前半の$\COB$についての主張の証明．
 		集合$(\dot{y}_s)_{s\in S}$はサイズ$\mu$のdominating familyなので$\mathfrak{d}_\relR\le \mu$を得る．
 
 		$\mathfrak{b}_\relR \ge \lambda$を示すために，$(\dot{x}_\alpha)_{\alpha\in\theta}$を長さ$\theta<\lambda$なる$X$の元の$P$名前の列とする．
@@ -512,11 +527,11 @@
 		$S$は${<}\lambda$-directedなので，ある$t$があってどの$s_\alpha$よりも大きい．
 		したがって，$P\forces \dot{x}_\alpha \sqsubset \dot{y}_t $がすべての$\alpha$で成り立つ．
 		すなわち$\{\dot{x}_\alpha:\, \alpha\in\theta\}$はboundedである．
+		
+		後半の$\EUB$についての主張は上の主張と前半の主張から従う．
 	\end{proof}
 
-	上の注意と補題\ref{lem:cobimpliesineq}より$\EUB(\relR, P, \lambda)$は$P \forces (\frakb_\relR \le \lambda \AND \frakd_\relR \ge \lambda)$を含意する．
-	
-	\section{Cichońの図式の左半分}
+	\section{Cichońの図式の左半分}\label{sec:leftside}
 	
 	\subsection{初めの強制法$\Pa$}
 
@@ -716,6 +731,19 @@
 		
 	\subsection{$\GCH$を復活させる}
 	
+	
+	\begin{thm}\label{thm:Pa}
+		GCHを仮定し$\lambda_i$が仮定\ref{asm:P}を満たすものとして与えられるとする．
+		このときパラメータを適切に定めることで，定義\ref{def:Pa}でのFS ccc反復$\Pa$が$i=1,2,3,4$について次を満たすようにできる：
+		\begin{itemize} 
+			\item  任意の$[\lambda_i,\lambda_5]$内の正則基数$\kappa$について，$\EUB(\relR_i, \Pa,\kappa)$が成り立つ．
+			\item $\COB(\relR_i, \Pa,\lambda_i,\lambda_5)$が成り立つ．
+		\end{itemize}
+		よって特に$\Pa$は$\addnull=\lambda_1$, $\covnull=\lambda_2$, 
+		$\mathfrak{b}=\lambda_3$, $\nonmeager=\lambda_4$,
+		$\covmeager=\mathfrak{d}=\nonnull=\cofnull=\lambda_5=2^{\aleph_0}$を強制する．
+	\end{thm}
+	
 	\section{ブール超冪}
 	
 	\subsection{ブール超冪}
@@ -885,12 +913,12 @@
 		\textbf{$\kappa$から$\theta$へのBUP埋め込み}とはBUP埋め込み$j$で臨界点$\kappa$を持ち，$\cf(j(\kappa)) = \abs{j(\kappa)} = \theta$となるものを言う．
 	\end{defi}
 
-	\begin{cor}
+	\begin{cor}\label{cor:embed}
 		$\kappa$を強コンパクト，$\theta > \kappa$を正則基数で$\theta^\kappa = \theta$とする．
 		すると$\kappa$から$\theta$へのBUP埋め込みが存在する．(なおかつそれは，$\kappa \le \mu \le \theta$なる$\mu$に対して$\abs{j(\mu)} = \theta$を満たす)．
 	\end{cor}
 
-	\begin{prop}
+	\begin{lem}\label{lem:aa}
 		$j \colon V \to M$を初等的で，$M$は推移的かつ${<}\kappa$-closedかつ$\crit(j) = \kappa$だとする．
 		ある$\nu < \kappa$について$P$は$\nu$-ccであると仮定する．
 		\begin{enumerate}
@@ -903,7 +931,7 @@
 			\item\label{item:aa4} 
 			$j''P$ (これは$P$と同型)は$j(P)$の完備部分強制法である．
 		\end{enumerate}
-	\end{prop}
+	\end{lem}
 	\begin{proof}
 		1番について．
 		$P$が$\nu$-ccなため，
@@ -992,7 +1020,57 @@
 		\end{multline*}
 	\end{thm}
 	\begin{proof}
-		\todo
+		$i = 6, \dots, 9$について，$j_i$を$\kappa_i$から$\lambda_i$へのBUP埋め込みとする．
+		すなわち，$\cf(j_i(\kappa_i)) = \abs{j_i(\lambda_i)} = \lambda_i$.
+		第\ref{sec:leftside}章の強制法$\Pa$を使い，$i=5,6,7,8$に対し$\Paip \coloneq j_{i+1}(\Pai)$とおく．
+		特に$\PaIX = j_9(j_8(j_7(j_6(\Pa)))) $である. 		
+		
+		Cicho\'nの図式の関連する基数不変量を望んだ順番で$\mathfrak x_1,\dots,\mathfrak x_8$と並べる．
+		
+	
+		\[
+		\xymatrix@C=8pt@R=12pt{
+			& \mathfrak x_2\ar[r]        & \mathfrak x_4 \ar[r]      &  \mye \ar[r]     & \mathfrak x_8\ar[r]  & 2^{\aleph_0} \\
+			&                    & \mathfrak x_3\ar[r]\ar[u]  &  \mathfrak x_6\ar[u] &              &\\ 
+			\aleph_1\ar[r] & \mathfrak x_1\ar[r]\ar[uu] & \mye\ar[r]\ar[u] &  \mathfrak x_5\ar[r]\ar[u]& \mathfrak x_7\ar[uu] &
+		}
+		\]   
+		
+		$i=1,\dots,4$に対して$i^* \coloneq 9-i$とおく (よって$\mathfrak x_{i^*}$は$\mathfrak x_i$の双対である)．
+		
+		補題\ref{lem:cobimpliesineq}より
+		$\EUB(\relR_i, P, \lambda)$は$P \forces (\mathfrak x_i\le \lambda \mathbin{\&} \mathfrak x_{i^*}\ge \lambda)$を含意し，$\COB(\relR, P, \lambda, \mu)$は$P \forces \mathfrak x_i\ge \lambda  \mathbin{\&} \mathfrak x_{i^*}\le \mu$を含意することに注意する．
+		
+		
+		\emph{主張:} $\PaIX$は$2^{\aleph_0}=\lambda_9$を強制する．
+		
+		\emph{証明:} $i=5,\dots,8$に関する帰納法で，各$\Paip$は$2^{\aleph_0}=j_{i+1}(\lambda_i)=\lambda_{i+1}$を強制することを示せる 
+		(補題~\ref{lem:aa}(\ref{item:size})と系~\ref{cor:embed}による)．
+		
+		
+		\emph{主張:} $i=1,\dots,4$について$\EUB(\relR_i, \PaIX,\lambda_i)$が成り立ち，$\EUB(\relR_4, \PaIX,\lambda_5)$が成り立つ.
+		
+		\emph{証明:}  主張は定理\ref{thm:Pa}により$\Pa$について成り立ち，また系~\ref{cor:bbb}(\ref{item:linerapreservedcor})により保存される．
+		
+		これは$i=1,\dots,4$について$V^{\PaIX}$での$\mathfrak x_i\le \lambda_i$を含意し，また$\mathfrak x_5=\covmeager\ge \lambda_5$を含意する．
+		
+		\emph{主張:} $i=1,2,3$に対して$\EUB(\relR_i, \PaIX,\lambda_{i^*})$が成り立つ．
+		
+		\emph{証明:}  $\kappa_{i^*+1}<\lambda_i<\kappa_{i*}<\lambda_5$に注意する．
+		よって$\EUB(\relR_i, \Pa,\kappa_{i^*})$が成り立つ (系\ref{thm:Pa})．
+		これは$\ell=5,\dots,i^*-1$について$\EUB(\relR_i, \Paell,\kappa_{i^*})$を含意する (系\ref{cor:bbb}(\ref{item:linerapreservedcor}))．
+		すると$\ell=i^*$について$\EUB(\relR_i, \Paell,\lambda_{i^*})$である (系 \ref{cor:bbb}(\ref{item:linerapreservedcorb}))．
+		すると$\ell=i^*+1,\dots,9$について$\EUB(\relR_i, \Paell,\lambda_{i^*})$を得る (再び系\ref{cor:bbb}(\ref{item:linerapreservedcor}))．
+		
+		これは$V^{\PaIX}$での$\ell=6,7,8$について$\mathfrak x_{\ell}\ge \lambda_{\ell}$を含意する．
+		
+		
+		\emph{主張:} $i=1,2,3,4$が$\COB(\relR_i, \PaIX,\lambda_i,\lambda_{i^*})$について成り立つ．
+		
+		\emph{証明:}  定理\ref{thm:Pa}より$\COB(\relR_i, \Pa,\lambda_i,\lambda_5)$が成り立ち，$\ell=5,\dots,i^*$について$\COB(\relR_i, \Paell,\lambda_i,\lambda_\ell)$を導く ($\kappa_\ell>\lambda_i$を使う) (系\ref{cor:bbb}(\ref{item:partialpreservedcor}))．
+		すると$\ell=i^*+1,\dots,9$について$\COB(\relR_i, \Paell,\lambda_i,\lambda_{i^*})$を得る (系\ref{cor:bbb}(\ref{item:partialpreservedcord}))．
+		
+		これは$V^{\PaIX}$においての$i=1,\dots,4$について$\mathfrak x_i\ge \lambda_i$と$\ell=5,\dots,8$についての$\mathfrak x_\ell\le \lambda_{\ell}$を含意する．
 	\end{proof}
 
 
