@@ -718,6 +718,8 @@
 	
 	\section{ブール超冪}
 	
+	\subsection{ブール超冪}
+	
 	$\kappa$を強コンパクト基数とし，$B$を$\kappa$分配的かつ$\kappa^+$-ccを持つ無原子完備ブール代数とする．
 	すると任意の$B$内の$\kappa$完備フィルターは$\kappa$完備なウルトラフィルターに拡大される．
 	$U$は$\kappa^+$完備ではない．
@@ -815,6 +817,8 @@
 		他方で，$\cf(j''\lambda) = \cf(\lambda) = \lambda$である．これで示せた．
 	\end{proof}
 
+	\subsection{$\kappa$から$\theta$へのBUP埋め込み}
+
 	\begin{lem}
 		$\kappa$を強コンパクト基数，$\theta > \kappa$を$\cf(\theta) > \kappa$なる基数とする．
 		このときBUP埋め込み$j$で$\crit(j) = \kappa$かつ次の3条件を満たすものが存在する：
@@ -893,11 +897,11 @@
 			\item\label{item:aa1} $j(P)$は$\nu$-cc．
 			\item\label{item:aa2} $\tau$が$M[G]$の元を表す$j(P)$名前ならば，$j(P)$名前が$\sigma$が$M$の中にあって$j(P) \forces \tau=\sigma$となる．
 			\item\label{item:aa2b}
-			特に、どんな$j(P)$名前であって、実数やボレルコード、実数の可算列を表すものは同値なものが$M$の中にある。
+			特に，どんな$j(P)$名前であって，実数やボレルコード，実数の可算列を表すものは同値なものが$M$の中にある．
 			\item\label{item:aa3}  $M[G]$は$V[G]$の中で${<}\kappa$-closedである.
-			\item\label{item:size} もし$\xi<\kappa$であって$P$が$2^\xi=\lambda$を強制するならば$j(P)$は$2^\xi=|j(\lambda)|$を強制する。
+			\item\label{item:size} もし$\xi<\kappa$であって$P$が$2^\xi=\lambda$を強制するならば$j(P)$は$2^\xi=|j(\lambda)|$を強制する．
 			\item\label{item:aa4} 
-			$j''P$ (これは$P$と同型)は$j(P)$の完備部分強制法である。
+			$j''P$ (これは$P$と同型)は$j(P)$の完備部分強制法である．
 		\end{enumerate}
 	\end{prop}
 	\begin{proof}
@@ -917,6 +921,8 @@
 
 		\todo
 	\end{proof}
+
+	\subsection{$\EUB$と$\COB$の保存}
 
 	\begin{lem}
 		$\relR$をポーランド関係システムとし，$P$をccc強制法とし，$j$をBUP埋め込みで臨界点$\kappa$を持つものとする．
@@ -960,26 +966,27 @@
 		すると，どんな$t \succ s'$についても，$j(t) \succ j(s') \succ s$なため，$j(P) \forces x \sqsubset_i j(y_t)$を得る．
 	\end{proof}
 		
-	系として次を得る。
+	系として次を得る．
 		
 		
 	\begin{cor}\label{cor:bbb}
-		$j$を$\kappa$から$\theta$へのBUP埋め込みとする。このとき
+		$j$を$\kappa$から$\theta$へのBUP埋め込みとする．このとき
 		\begin{enumerate}	
-			\item\label{item:linerapreservedcor} 正則な$\lambda\ne\kappa$に対する$\EUB(\relR, P,\lambda)$は$\EUB(\relR, j(P),\lambda)$を含意する。
+			\item\label{item:linerapreservedcor} 正則な$\lambda\ne\kappa$に対する$\EUB(\relR, P,\lambda)$は$\EUB(\relR, j(P),\lambda)$を含意する．
 			\item\label{item:linerapreservedcorb}
-			$\EUB(\relR, P,\kappa)$は$\EUB(\relR, j(P),\theta)$を含意する。
+			$\EUB(\relR, P,\kappa)$は$\EUB(\relR, j(P),\theta)$を含意する．
 			\item\label{item:partialpreservedcor}
-			$\kappa> \lambda$と$\kappa\le\mu\le\theta$に対する$\COB(\relR, P,\lambda,\mu)$は$\COB(\relR, j(P),\lambda,\theta)$を含意する。
+			$\kappa> \lambda$と$\kappa\le\mu\le\theta$に対する$\COB(\relR, P,\lambda,\mu)$は$\COB(\relR, j(P),\lambda,\theta)$を含意する．
 			\item\label{item:partialpreservedcord}
-			$\kappa< \lambda$に対する$\COB(\relR, P,\lambda,\mu)$は$\COB(\relR, j(P),\lambda,\mu)$を含意する。
+			$\kappa< \lambda$に対する$\COB(\relR, P,\lambda,\mu)$は$\COB(\relR, j(P),\lambda,\mu)$を含意する．
 		\end{enumerate}
 	\end{cor}
 
+	\subsection{主定理の証明}
 
 	\begin{thm}
-		GCHを仮定し、$\aleph_1<\kappa_9<\lambda_1<\kappa_8<\lambda_2<\kappa_7<\lambda_3<\kappa_6<\lambda_4<\lambda_5<\lambda_6<\lambda_7<\lambda_8<\lambda_9$を正則基数たちで$\lambda_3$は正則基数の後続で$i=1,2,4,5$に対し$\lambda_i$は可算共終数を持つ基数の後続でないとし、$i=6,7,8,9$に対して$\kappa_i$は強コンパクト基数であるとする。
-		するとccc強制法$\PaIX$が存在し、次を強制する：
+		GCHを仮定し，$\aleph_1<\kappa_9<\lambda_1<\kappa_8<\lambda_2<\kappa_7<\lambda_3<\kappa_6<\lambda_4<\lambda_5<\lambda_6<\lambda_7<\lambda_8<\lambda_9$を正則基数たちで$\lambda_3$は正則基数の後続で$i=1,2,4,5$に対し$\lambda_i$は可算共終数を持つ基数の後続でないとし，$i=6,7,8,9$に対して$\kappa_i$は強コンパクト基数であるとする．
+		するとccc強制法$\PaIX$が存在し，次を強制する：
 		\begin{multline*} 
 			\addnull=\lambda_1 < \covnull =\lambda_2 <\mathfrak{b}=\lambda_3<\nonmeager=\lambda_4<\\ <\covmeager=\lambda_5 < \mathfrak{d}=\lambda_6 < \nonnull=\lambda_7 < \cofnull=\lambda_8< 2^{\aleph_0}=\lambda_9.
 		\end{multline*}
