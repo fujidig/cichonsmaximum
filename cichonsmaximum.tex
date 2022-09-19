@@ -425,14 +425,14 @@
 	
 	\begin{defi}
 		$P$をcccな強制法とし，$\lambda$を非可算正則基数とし，$R$をポーランド関係システムとする．
-		$P$が\textbf{$\lambda$-$\relR$-good}であるとは，$Y$の元を表す各$P$名称$\dot{y}$について非空な集合$\mathscr{Y} \subset Y$でサイズ$<\lambda$なものが$V$に存在して，どんな$x \in X$についても$x$が$\mathscr{Y}$上$\relR$非有界であれば，$\forces x \not \sqsubset \dot{y}$.
+		$P$が\textbf{$\lambda$-$\relR$-good}であるとは，$Y$の元を表す各$P$名前$\dot{y}$について非空な集合$\mathscr{Y} \subset Y$でサイズ$<\lambda$なものが$V$に存在して，どんな$x \in X$についても$x$が$\mathscr{Y}$上$\relR$非有界であれば，$\forces x \not \sqsubset \dot{y}$.
 	\end{defi}
 
 	\begin{fact}
 		$\relR$をポーランド関係システムとする．
 		\begin{enumerate}
 			\item cccでサイズ$< \lambda$な強制法$P$はすべて，$\lambda$-$\relR$-goodである．特にCohen強制法は$\aleph_1$-$\relR$-goodである．
-			\item cccで$\lambda$-$\R$-goodであることは任意の長さの有限台反復で保たれる．
+			\item cccで$\lambda$-$\relR$-goodであることは任意の長さの有限台反復で保たれる．
 		\end{enumerate}
 	\end{fact}
 
@@ -470,7 +470,7 @@
 	\begin{defi}
 		$\gamma$を極限順序数，$P$をccc強制法，$\relR = (X, Y, \sqsubset)$を定義可能な関係システムとする．
 		$\EUB(\relR, P, \gamma)$とは次の主張である：
-		$X$の元の$P$-名称の列$(\dot{x}_\alpha)_{\alpha < \gamma}$であって，どんな$Y$の元の$P$-名称の列$\dot{y}$についても
+		$X$の元の$P$-名前の列$(\dot{x}_\alpha)_{\alpha < \gamma}$であって，どんな$Y$の元の$P$-名前の列$\dot{y}$についても
 		\[
 		(\exists \alpha < \gamma)(\forall \beta \in \gamma \setminus \alpha)\ P \forces \neg (\dot{x}_\beta \sqsubset \dot{y})
 		\]
@@ -481,7 +481,7 @@
 	\begin{defi}
 		$\lambda, \mu$を非可算正則基数，$P$をccc強制法，$\relR = (X, Y, \sqsubset)$を定義可能な関係システムとする．
 		このとき$\COB(\relR, P, \lambda, \mu)$は次の主張である：
-		${<}\lambda$-directedな半順序集合集合$(S, \prec)$でサイズ$\mu$なものと$Y$の元の$P$-名称の族$(\dot{y}_s : s \in S)$があって，$X$の元のどんな$P$-名称$\dot{x}$についても
+		${<}\lambda$-directedな半順序集合集合$(S, \prec)$でサイズ$\mu$なものと$Y$の元の$P$-名前の族$(\dot{y}_s : s \in S)$があって，$X$の元のどんな$P$-名前$\dot{x}$についても
 		\[
 		(\exists s \in S)(\forall t \succ s) \ P \forces \dot{x} \sqsubset \dot{y}_i
 		\]
@@ -698,7 +698,7 @@
 			\item  すべての$\alpha\in S^4\cap \dom(p)$について：
 			\begin{itemize}
 				\item  $p\on\alpha$は$p(\alpha)$の幹と幅の組が$h(\alpha)$に等しいことを強制する．
-				\item $p$は$\alpha$において決定されている．
+				\item $p \on (\alpha+1)$は$\alpha$において決定されている．
 			\end{itemize}
 		\end{itemize}       
 	\end{defi}
@@ -746,7 +746,7 @@
 	\begin{enumerate}
 		\item $M \models \varphi(x_1^U, \dots, x_n^U)$となるのはちょうど$\truth{\varphi(x_1, \dots, x_n)} \in U$となるとき．
 		特に$j \colon V \to M$は初等埋め込み．
-		\item $\abs{Y} < \kappa$ならば$j(Y) = j``Y$である．特に$j$の$\kappa$への制限は恒等写像である．$M$は${<}\kappa$列で閉じている．
+		\item $\abs{Y} < \kappa$ならば$j(Y) = j''Y$である．特に$j$の$\kappa$への制限は恒等写像である．$M$は${<}\kappa$列で閉じている．
 		\item $j(\kappa) \ne \kappa$，特に$\kappa = \crit(j)$.
 	\end{enumerate}
 	\end{fact}
@@ -764,7 +764,7 @@
 	そのようなBUP名前を\textbf{$j(Y)$の元を表すBUP名前}と呼ぶことにする (そのような名前$x$について$x^U$は$j(Y)$の元であるため)．
 
 	\begin{lem}
-		$(S, \le)$を${\le} \kappa$-directedな半順序集合としたとき，$j``S$は$j(S)$の中でcofinalである．
+		$(S, \le)$を${\le} \kappa$-directedな半順序集合としたとき，$j''S$は$j(S)$の中でcofinalである．
 	\end{lem}
 	\begin{proof}
 		$j(S)$の元を任意にとり，$x^U$とする．
@@ -776,7 +776,7 @@
 
 	\begin{defi}
 		\textbf{BUP埋め込み}とは，初等埋め込み$j \colon V \to M$ ($M$は推移的)であって，臨界点$\kappa$を持つものであって，
-		$M$は${<}\kappa$-closedかつ，どんな${\le}\kappa$-directedな半順序集合$S$についても$j``S$は$j(S)$内でcofinalになるものである．
+		$M$は${<}\kappa$-closedかつ，どんな${\le}\kappa$-directedな半順序集合$S$についても$j''S$は$j(S)$内でcofinalになるものである．
 	\end{defi}
 
 	よって，$\kappa$-分配的かつ$\kappa^+$-cc原子なし完備ブール代数と$\kappa$完備ウルトラフィルターに対する上で定義した埋め込みはBUP埋め込みである．
@@ -784,9 +784,9 @@
 	\begin{lem}
 		$j$をBUP埋め込みで$\crit(j) = \kappa$なものとする．
 		\begin{enumerate}
-			\item $\abs{A} < \kappa$ならば，$j``A = j(A)$である．
+			\item $\abs{A} < \kappa$ならば，$j''A = j(A)$である．
 			\item ある正則基数$\lambda < \kappa$について$S$が${<}\lambda$-directedな半順序であるとき，$j(S)$は${<}\lambda$-directedである．
-			\item $\cf(\alpha) \ne \kappa$なる極限順序数$\alpha$について，$j``\alpha$は$j(\alpha)$の中で共終．よって特に$\cf(j(\alpha)) = \cf(\alpha)$.
+			\item $\cf(\alpha) \ne \kappa$なる極限順序数$\alpha$について，$j''\alpha$は$j(\alpha)$の中で共終．よって特に$\cf(j(\alpha)) = \cf(\alpha)$.
 		\end{enumerate}
 	\end{lem}
 	\begin{proof}
@@ -799,9 +799,9 @@
 		3つ目．$\cf(\alpha) = \lambda \ne \kappa$とする．
 		$f \colon \lambda \to \alpha$を共終単調増加関数とする．
 		$\lambda < \kappa$ならば$M$の中で$j(f) \colon \lambda \to j(\alpha)$が共終単調増加関数となるが，これは絶対的である．
-		$\lambda > \kappa$ならば$\alpha$は${\le}\kappa$-directedな半順序なので，$j``\alpha$は$j(\alpha)$の中で共終である．
-		よって$j``f = (j(\xi), j(f(\xi)))_{\xi < \lambda}$は$\cf(j`` \lambda) = \cf(j `` \alpha) = \cf(j(\alpha))$を目撃する．
-		他方で，$\cf(j``\lambda) = \cf(\lambda) = \lambda$である．これで示せた．
+		$\lambda > \kappa$ならば$\alpha$は${\le}\kappa$-directedな半順序なので，$j''\alpha$は$j(\alpha)$の中で共終である．
+		よって$j''f = (j(\xi), j(f(\xi)))_{\xi < \lambda}$は$\cf(j'' \lambda) = \cf(j '' \alpha) = \cf(j(\alpha))$を目撃する．
+		他方で，$\cf(j''\lambda) = \cf(\lambda) = \lambda$である．これで示せた．
 	\end{proof}
 
 	\begin{lem}
@@ -877,16 +877,26 @@
 
 	\begin{prop}
 		$j \colon V \to M$を初等的で，$M$は推移的かつ${<}\kappa$-closedかつ$\crit(j) = \kappa$だとする．
-		ある$\mu < \kappa$について$P$は$\mu$-ccであると仮定する．
+		ある$\nu < \kappa$について$P$は$\nu$-ccであると仮定する．
 		\begin{enumerate}
-			\item $j(P)$は$\mu$-cc．
+			\item $j(P)$は$\nu$-cc．
 			\item $\tau$が$M[G]$の元を表す$j(P)$名前ならば，$j(P)$名前が$\sigma$が$M$の中にあって$j(P) \forces \tau=\sigma$となる．
 			\item \todo
 		\end{enumerate}
 	\end{prop}
 	\begin{proof}
-		1番について．$A \subset j(P)$がサイズ$\mu$だとしたら，$A \in M$である．そして初等性より$A$は反鎖でない．
-
+		1番について．
+		$P$が$\nu$-ccなため，
+		\[
+		V \models \forall A \in [P]^\nu \exists p, q \in A (p \ne q \land p \parallel q)
+		\]
+		となる．初等性と$j(\nu) = \nu$より
+		\[
+		M \models \forall A \in [P]^\nu \exists p, q \in A (p \ne q \land p \parallel q).
+		\]
+		$A \subset j(P)$がサイズ$\nu$だとしたら，$M$の${<}\kappa$closedより，$A \in M$である．
+		そこで$M$で$\exists p, q \in A (p \ne q \land p \parallel q)$が成り立つが，これは上向き絶対的であるため， $V$でも成り立つ．
+				
 		2番について．
 
 		\todo
@@ -907,6 +917,32 @@
 
 		後半の主張は正則な$\lambda \ne \kappa$については$\cf(j(\lambda)) = \lambda$であったことと$\EUB(\relR, P, \delta) \iff \EUB(\relR, P, \cf(\delta))$より分かる．
 	\end{proof}
+	
+	\begin{lem}
+	$\relR$をポーランド関係システムとし，$P$をccc強制法とし，$j$をBUP埋め込みで臨界点$\kappa$を持つものとする．
+	$\COB(\relR, P, \lambda, \mu)$を仮定する．
+	このとき，もし$\kappa > \lambda$ならば，$\COB(\relR, j(P), \lambda, \abs{j(\mu)})$が成り立つ．
+	もし$\kappa < \lambda$ならば，$\COB(\relR, j(P), \lambda, \mu)$が成り立つ．	
+	\end{lem}
+	\begin{proof}
+		$(S, \prec)$と$\bar{y}$を$\COB(\relR, P, \lambda, \mu)$の証拠とする．
+		すると，初等性より$M$で次が成り立つ．
+		\begin{equation}\tag{$*$}\label{eq:ff}
+		\text{各$j(P)$名前$x$について：}
+		(\exists s\in j(S))\,(\forall t\in j(S))\ (\, t\succ s\rightarrow  j(P)\forces 
+		x \sqsubset_i j(\bar{y})_t\,)
+		\end{equation}
+		$j(P)$名前$x$が$V$で与えられたとき，それを$M$の元に取り直すことができたことと，$\sqsubset_i$の$M[G]$と$V[G]$の間の絶対性より，これは$V$でも正しい．
+		
+		もし$\lambda < \kappa$ならば，$j(\lambda) = \lambda$なので，$j(S)$は$M$の中で$\lambda$-directedであり，$M$の${<}\kappa$-closednessより$V$でもそうである．よって，$\COB(\relR, j(P), \lambda, \abs{j(\mu)})$を得る．
+		
+		$\lambda > \kappa$とする．$j''S$と$j''\bar{y}$が$\COB(\relR, j(P), \lambda, \mu)$の証拠であることを示す．
+		$j''S$は$S$と同型なので，$\lambda$-directedかつサイズ$\mu$は良い．
+		$j(P)$名前$x$が与えられたとすると，やはりそれは$M$の元だとしてよい．
+		すると\eqref{eq:ff}でのような$s \in j(S)$がとれる．
+		$j''S$が$j(S)$の中でcofinalであったので，$s' \in S$がとれて$j(s') \succ s$となる．
+		すると，どんな$t \succ s'$についても，$j(t) \succ j(s') \succ s$なため，$j(P) \forces x \sqsubset_i j(y_t)$を得る．
+		\end{proof}
 
 	\nocite{*}
 	\printbibliography[title={参考文献}]
