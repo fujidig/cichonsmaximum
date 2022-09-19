@@ -928,8 +928,6 @@
 			特に，どんな$j(P)$名前であって，実数やボレルコード，実数の可算列を表すものは同値なものが$M$の中にある．
 			\item\label{item:aa3}  $M[G]$は$V[G]$の中で${<}\kappa$-closedである.
 			\item\label{item:size} もし$\xi<\kappa$であって$P$が$2^\xi=\lambda$を強制するならば$j(P)$は$2^\xi=|j(\lambda)|$を強制する．
-			\item\label{item:aa4} 
-			$j''P$ (これは$P$と同型)は$j(P)$の完備部分強制法である．
 		\end{enumerate}
 	\end{lem}
 	\begin{proof}
@@ -945,9 +943,18 @@
 		$A \subset j(P)$がサイズ$\nu$だとしたら，$M$の${<}\kappa$closedより，$A \in M$である．
 		そこで$M$で$\exists p, q \in A (p \ne q \land p \parallel q)$が成り立つが，これは上向き絶対的であるため， $V$でも成り立つ．
 				
-		2番について．
 
-		\todo
+	\ref{item:aa2}番について．名前$\tau$は組$(A,f)$であって$A\subseteq j(P)$は極大反鎖で$f \colon A\to M$は$a$を$M$の中の$j(P)$名前に送るものに対応する．
+	$j(P)$は$\nu$-ccでかつ$M$は${<}\kappa$-closedなので，$(A,f)$は$M$の元であり，$M$の中で$(A,f)$を$j(P)$名前$\sigma$として解釈できる．
+	
+	これは直ちに(\ref{item:aa2b})と(\ref{item:aa3})を含意する: 
+	$j(P)$名前$\tau$で$M[G]$の元の$\zeta$-列 ($\zeta<\kappa$)を表すものが与えられたとき，$\tau$を名前の$\zeta$-列$(\tau_i)_{i<\zeta}$として解釈でき，各$\tau_i$について同値な$j(P)$名前$\sigma_i$が$M$にある．
+	$M$が${<}\kappa$-closedなので，$(\sigma_i)_{i<\zeta}$は$M$にあり，よって$j(P)$名前を$M$の中にとって$\tau$と同値にできる．
+	
+	(そして，もし$\tau$が$j(P)$名前で$M[G]$の中で${<}\kappa$列なものを表すものだとすると，$\kappa$が正則で$j(P)$が$\kappa$-ccなことから$\tau$の長さの上界$\zeta<\kappa$をとれる．)
+	
+	\ref{item:size}番について．
+	$M[G]$では$|2^{\xi}|=j(\lambda)$と$2^{\xi}\cap V[G]=2^{\xi}\cap M[G]$が成り立つ．
 	\end{proof}
 
 	\subsection{$\EUB$と$\COB$の保存}
