@@ -98,6 +98,8 @@
 \newcommand{\mye}{*+[F.]{\phantom{\lambda}}}
 \newcommand{\myb}{*{\phantom{\lambda}}}
 
+\newcommand{\mR}{\mathbb{R}}
+
 \newcommand{\covnull}{\cov(\mathcal N)}
 \newcommand{\cofnull}{\cof(\mathcal N)}
 \newcommand{\addnull}{\add(\mathcal N)}
@@ -140,6 +142,7 @@
 \newtheorem{property}[thm]{性質}
 \newtheorem{assumption}[thm]{仮定}
 \newtheorem{observation}[thm]{観察}
+\newtheorem{construction}[thm]{構成}
 \renewcommand{\proofname}{証明}
 
 
@@ -554,12 +557,12 @@
 
 	次の定義は後の節で使う．
 
-	\begin{defi}
+	\begin{defi}\label{def:groundmodelsequence}
 		\begin{enumerate}
 			\item $(p, q) \in P_\alpha \ast Q_\alpha$が\textbf{位置$\alpha$で決定されている}とはコード$(B, u)$があって，$p$が$q$が$(B,u)$のコードであることを強制することだとする．
 			$(p, q)$が与えられたとき，一般には$q$のコードの$P_\alpha$名前が取れるにすぎないので位置$\alpha$で決定されていないが，$p' \le p$を取って$(p', q)$が位置$\alpha$が決定されているようにすることができる．
 			
-			\item $Q_\alpha$の元を表す\textbf{グラウンドモデルコード列}とはコードの列$(B_n, u_n)_{n \in \omega}$で，$u_n \subset w$なものである．
+			\item \label{item:gms} $Q_\alpha$の元を表す\textbf{グラウンドモデルコード列}とはコードの列$(B_n, u_n)_{n \in \omega}$で，$u_n \subset w$なものである．
 		\end{enumerate}
 	\end{defi}
 
@@ -749,9 +752,190 @@
 		各\textbf{固定された}ガードレール$h$について条件$p$であって$h$に従うものの集合はcenteredである．
 	\end{itemize}
 
+	\begin{defi}
+		\begin{itemize} 
+			\item \textbf{ルート$\nabla$の$\Delta$システムでフルガードレール$h$に従うもの}とは族$\bar p=(p_i)_{i\in I}$であって，おのおのの$p_i$はすべて$h$に従い，$(\dom(p_i):i\in I)$は通常の意味でルート$\nabla$の$\Delta$システムであるものをいう (よって$\nabla\subseteq \delta_5$は有限)．
+			\item 
+			特に可算な$\Delta$システムについて興味がある．  
+			$(p_n:n\in \omega)$をルート$\nabla$の$\Delta$で$h$に従うものとし，$\bar
+			D=(D_\alpha:\alpha\in u)$を列であって$u\supseteq \nabla \cap S^4$かつ$D_\alpha$は$\omega$上の超フィルターを表す$P_\alpha$名前であるとする．
+			このとき定義域$\nabla$の関数$\lim_{\bar D}\bar p$を次で定める．
+			\begin{itemize}
+				\item もし$\beta\in \nabla\cap S^0 $ならば，$\lim_{\bar D}\bar p(\beta)$はすべての$p_n(\beta)$の共通の値である  (その値はすでにガードレール$h$によって決定されていることに注意する)．
+				\item もし$\alpha\in \nabla\cap S^4$ならば，$\lim_{\bar D}\bar p(\alpha)$は
+				$\Pa_\alpha$によって強制されることの$\lim_{D_\alpha}(p_n(\alpha))_{n\in \omega}$である．  
+				
+			\end{itemize}
+		\end{itemize}
+	\end{defi}
+
+	一般的には$\lim_{\bar D}\bar p$は$\Pa$の条件とは限らないことに注意する： 
+$\alpha\in S^4\cap \nabla$について，$\lim_{\bar D}\bar p(\alpha)$はeventually different強制法$\Eor$の条件であることは確かだが，それが必ずしも部分的eventually different 強制法$Q_{\alpha}$に入っているとは言えない． 
 		
+	また次に注意する：
+	もし$\bar p$が可算な$\Delta$システムかつ$\alpha\in\nabla\cap S^4$ならば$(p_n(\alpha))_{n\in\omega}$はグラウンドモデルコード列である
+	(定義\ref{def:groundmodelsequence}(\ref{item:gms})を見よ)．これは``$p_n$が$h$に従う''の定義と$\bar p$ is in $V$より従う．
+	
+	今我々は$(w_\alpha)_{\alpha\in S^4}$を除いたすべての$\Pa=(P_\alpha,Q_\alpha)_{\alpha\in \delta_5}$を定義するためのパラメータを固定している．
+	よって，$\alpha\in S^4\cap \beta$に対して$w_\alpha$，$P_\beta$を知れる．
+	
+	次がCichoń's maximumで最も重いポイントである．本稿では証明を省略する．
+	
+	\begin{construction}\label{constr}
+		$\alpha\in \delta_5$に関する帰納法で列$(D^\ve_\alpha)_{\ve\in \chi}$と$\alpha\in S^4$に対する$w_\alpha$を次を満たすように構成できる：
+		\begin{enumerate}
+			\item\label{item:olda} 各$D^\ve_\alpha$は非単項超フィルターの$P_\alpha$名前であって，$P_\alpha \forces \bigcup_{\beta<\alpha}D^\ve_\beta \subset D^\ve_\alpha$.
+			\item\label{item:oldb1} 各可算な$\Delta$システム$\bar p$ in $P_\alpha$でガードレール$h^*_\ve\in H^*$に従うものに対して:
+			\\
+			$\lim_{(D^\ve_\beta)_{\beta<\alpha}}\bar p$は$P_\alpha$の元\,\dots
+			\item\label{item:oldb2} \dots\ かつ強制することの
+			$A_{\bar p}\coloneq \{n\in\omega:\, p_n\in G_\alpha\}$は$D^\ve_\alpha$の元．
+			\item\label{item:oldc} $\alpha\in S^4$のとき，$w_\alpha\subseteq \alpha$，$|w_\alpha|<\lambda_4$かつ$Q_\alpha$の元のすべてのグラウンドモデルコード列と$\ve\in \chi$について$D^\ve_\alpha$極限は$Q_\alpha$に属することが強制される．
+			
+			(実際には，これを満たす$w_\alpha$の集合は$[\alpha]^{{<}\lambda_4}$の中で$\omega_1$-clubとなる．
+			すなわち，各$w^*\in [\alpha]^{{<}\lambda_4}$について$w_\alpha\supseteq w^*$で(d)を満たすものが存在し，そして$(w^i)_{i\in\omega_1}$という(d)を満たすものの増加列について極限$w_\alpha\coloneq \bigcup_{i\in\omega_1}w^i$も(d)を満たす．	)
+		\end{enumerate}
+	\end{construction}
+
+	上記の構成のもとで，次が得られる．
+
+	\begin{lem}
+		$\kappa\in[\lambda_3,\lambda_5]$に対する$\EUB(\relR_3, \Pa,\kappa)$が成立する．
+		なおかつ，それは最初の$\kappa$個のCohen実数によってwitnessされる． 
+	\end{lem}
+	
+	\begin{proof}
+		証明したいことは，どんな$\Pa$名前$y$についてもcoboundedly manyに$\alpha\in\kappa$があって，$\Pa\forces \lnot c_\alpha \le^* y$となることである．
+		
+		背理法で，$p^*$が次を強制するとしよう；unboundedly manyの$\alpha\in\kappa$について$c_\alpha\le^* y$である．
+		
+		そしてそのような添字$\alpha$たちを$(\alpha_i)_{i\in\kappa}$と昇順で枚挙する (よって特に$\alpha_i\ge i$)．
+		各$i$について$p_i\le p^*$であって$\alpha_i$をある$\beta_i$に決定し，かつ$n_i$であって$(\forall m\ge n_i)\, c_{\alpha_i}(m)\le y(m)$となるものも決定するものをとる．
+		$\beta_i\in\dom(p_i)$を仮定しても良い．
+		$\beta_i<\kappa\le \lambda_5$なので$\beta_i$はCohenの位置であり，したがって$p_i(\beta_i)$はCohenの条件 in $V$だとしてよい．
+		$\Delta$システム補題や鳩の巣原理を使うことで添え字集合を縮めて，以下を仮定できる：
+		\begin{itemize}
+			\item
+			すべての$n_i$はある$n^*$に等しい．
+			\item $(p_i)_{i\in\kappa}$はルート$\nabla$の$\Delta$システムである．
+			\item $\beta_i \notin \nabla$であり，特に$\beta_i$たちは互いに異なる．
+			
+			(実際，どんな$\beta\in\kappa$についてもたかだか$|\beta|$個の$p_i$が$\alpha_i=\beta$を強制できる，なぜなら$p_i$は$\alpha_i\ge i$を強制するから．)
+			\item $p_i(\beta_i)$は常に同じCohenの位置$s$であり，一般性を失わず同じ長さ$n^{**}\ge n^*$としてよい
+			(そうでなければ$s$を拡大する)．
+		\end{itemize}
+		この$\Delta$システムの最初の$\omega$個の元$(p_i)_{i\in\omega}$をとる．
+		今，各$p_i$を$p_i'$に拡大する：
+		Cohenの条件$p_i(\beta_i)=s$を$s^\frown i$に拡大することで (すなわち，$p_i'$により$c_{\alpha_i}(n^{**})=i$がこれで強制されるようになる)．
+		今$(p'_i)_{i\in\omega}$はなお可算な$\Delta$システムであり新しい可算なガードレールに従い，したがって，あるフルガードレール$h^*_\ve\in H^*$に従う．
+		
+		結果として$\lim_{(D^\ve_\alpha)_{\alpha\in \delta_5}}\bar p'$は強制することの，無限個に多くの$p'_i$がジェネリックフィルターに入る (構成\ref{constr}(3))．
+		しかしそのようなおののの$p'_i$は$c_{\alpha_i}(n^{**})=i \le y(n^{**})$を強制する．これは$y^{**}$が自然数なことに反している．
+	\end{proof}
+
 	\subsection{$\GCH$を復活させる}
 	
+	本稿の残りではグラウンドモデル$V$で仮定\ref{asm:P}に加えて次が成り立つと仮定する．
+	\begin{assumption}
+		GCHが成り立つ．
+	\end{assumption}
+	(これは仮定\ref{asm:chi}と両立しないことに注意．)
+	
+	$\Pa$を定めるための$\bar w=(w_\alpha)_{\alpha\in S^4}$を除いたすべてのパラメータが固定されていることに注意する．
+	
+	\begin{lem}\label{lem:gch-construction}
+		$\bar w$を適当に選べば
+		すべての正則基数$\kappa\in [\lambda_3,\lambda_5]$について$\EUB(\relR_3, \Pa,\kappa)$が成り立つ.
+	\end{lem}
+	
+	これを示すためにかんたんな観察から始める．
+	\begin{lem}\label{lem:club}
+		$\chi$を基数とし，$B$を集合とし，$X^0\in [B]^\chi$とする． 
+		$\mR$は$\chi^+$-ccな強制概念で$C$は$\mR$名前で次を満たすとする：
+		\[
+		\mR \forces \text{``$C$ is an  $\omega_1$-club subset of $[B]^\chi$''}.
+		\]
+		するとある集合$X\supseteq X^0$がグラウンドモデルに存在し，$\mR \forces X\in C$.
+	\end{lem}
+	\begin{proof}
+		By induction, choose (in the ground model) sequences 
+		$X^\alpha, \tilde X^\alpha$ for $\alpha< \omega_1$ such that
+		$X^\alpha$ is in $[B]^\chi$, the sequence of the $X^\alpha$ is increasing with $\alpha$, $\tilde X^\alpha$
+		is an $R$-name, and the empty condition forces:
+		``$\tilde X^\alpha$ is in $C$ and is a  superset of $X^\alpha$;
+		and the sequence of the $\tilde X^\alpha$ is increasing (not necessarily continuous).''
+		Moreover, the empty condition forces $\tilde X^\alpha\subseteq X^{\alpha+1}$.
+		(In a  limit step $\gamma$, we set $X^\gamma=\bigcup_{\alpha<\gamma}X^\alpha$, and in a successor step $\alpha+1$ we use $\chi^+$-cc to cover the name $\tilde X^\alpha$.)
+		Then $X=\bigcup_{\alpha\in\omega_1}X^\alpha$ is as required.
+	\end{proof}
+	
+	
+	\begin{proof}[Proof of Lemma~\ref{lem:gch-construction}]
+		Let $\mR$ be a ${<}\chi$-closed $\chi^+$-cc p.o.\ that forces
+		$2^\chi=\lambda_5$.
+		
+		In the $\mR$-extension $V^*$, Assumption~\ref{asm:chi} holds;
+		and Assumption~\ref{asm:P} still holds for the fixed parameters.\footnote{In particular, $(w_\alpha)_{\alpha\in S^i}$ is still cofinal in
+			$[\delta_5]^{{<}\lambda_i}$: For $i=1,2$, the forcing $\mR$
+			doesn't add any new elements of $[\delta_5]^{{<}\lambda_i}$ as 
+			$\mR$ is $\lambda_i$-closed;
+			for $i=3$ any new subset of $\delta_5$ of size $\theta<\lambda_3$
+			is contained in a ground model set of size at most $\theta\times \chi<\lambda_3$, as $\mR$ is $\chi^+$-cc.}
+		
+		So in $V^*$, we can perform the inductive Construction~\ref{constr}, where now ``ground model'' refers to $V^*$, not $V$ (e.g.,
+		when we talk about determined positions,
+		or ground-model-code-sequences, etc). 
+		Actually, we can construct in $V$ the following, by induction on $\alpha\in \delta_5$, and starting
+		with some cofinal $\bar w^{\text{initial}}=(w^{\text{initial}}_\alpha)_{\alpha\in S^4}$ in $V$:
+		\begin{itemize}
+			\item An $\mR$-name $(D^\ve_\alpha)_{\ve\in \chi}$ (forced to be constructed) according to \ref{constr}(a,b,c).
+			\item If $\alpha\in S^4$, 
+			some $w_\alpha\supseteq w^\text{initial}_\alpha$ in $V$
+			such that $\mR$ forces $w_\alpha$ satisfies \ref{constr}(d).
+			
+			(We can do this by Lemma~\ref{lem:club}, as the set of potential $w_\alpha$'s is an $\omega_1$-clubset of $[\alpha]^{{<}\lambda_4}$.)
+		\end{itemize}
+		
+		So we get in $V$ a cofinal parameter $\bar w$ satisfying the following: 
+		In the $\mR$-extension $V^*$, the same parameters
+		define a forcing (call it 
+		$\PaB$)
+		satisfying 
+		$\EUB(\relR_3, \PaB,\kappa)$ in $V^*$.
+		
+		
+		$\PaB$ is basically the same as $\Pa$. More formally:
+		\begin{quote}
+			In the $\mR$-extension $V^*$,  $\Pa=(P_\alpha,Q_\alpha)_{\alpha<\delta_5}$ (the iteration constructed in $V$) is 
+			canonically densely embedded into $\PaB=(P^*_\alpha,Q^*_\alpha)_{\alpha<\delta_5}$ 
+			(the iteration constructed in $V^*$ using the same parameters).
+		\end{quote}
+		
+		Proof: By induction, we show (in the $\mR$-extension) that $P^*_\alpha$ forces 
+		that $Q^*_\alpha$ (evaluated by the $P^*_\alpha$-generic) is equal to
+		$Q_\alpha$ (evaluated by the induced $P_\alpha$-generic, as per induction hypothesis):
+		Every element of $Q^*_\alpha$ is a Borel function (which already exists in $V$)
+		applied to the generics at a countable sequence of indices in $w_\alpha$ (which also already exists in $V$).
+		
+		
+		This implies:
+		\begin{quote}
+			In $V$, $\EUB(\relR_3, \Pa,\kappa)$ holds for all $\kappa\in[\lambda_3,\lambda_5]$, witnessed by the first $\kappa$ many Cohen reals.
+		\end{quote}
+	
+		Proof: 
+		Let $y$ be a $\Pa$-name of a real.
+		In $V^*$, 
+		we can interpret $y$ as $\PaB$-name, and as 
+		$\EUB(\relR_3, \PaB,\kappa)$ holds, we get
+		$(\exists \alpha\in\kappa)\, (\forall \beta\in\kappa\setminus \alpha)
+		\PaB\forces  c_\beta \nleq^* y$, where $c_\beta$ is the Cohen added at $\beta$.
+		As $\chi<\kappa$, 
+		there is in $V$ an upper bound $\alpha^*<\kappa$ for the possible values of $\alpha$.
+		For any $\beta\in\kappa\setminus \alpha^*$,
+		we have (in $V$) $\Pa\forces  c_\beta \nleq^* y$ (by absoluteness).
+	\end{proof}
+		
 	
 	\begin{thm}\label{thm:Pa}
 		GCHを仮定し$\lambda_i$が仮定\ref{asm:P}を満たすものとして与えられるとする．
