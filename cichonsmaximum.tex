@@ -19,6 +19,7 @@
 \usepackage[explicit]{titlesec}
 \usepackage{stmaryrd}
 \usepackage[all]{xy}
+\usepackage{mdframed}
 \usepackage{geometry}
 \geometry{left=35mm,right=35mm,top=35mm,bottom=35mm}
 
@@ -153,7 +154,18 @@
 		\textcolor{red}{[TODO: #1]}%
 	}%
 }
+\definecolor{reasontext}{rgb}{0,0,0}
+\definecolor{reasonbg}{rgb}{0.9,0.9,0.9}
 
+\newenvironment{reason}
+{
+	\begin{mdframed}[backgroundcolor=reasonbg,linewidth=0]
+		\color{reasontext}
+		\small
+	}
+	{
+	\end{mdframed}
+}
 
 \usepackage[backend=biber,style=alphabetic,sorting=nty,doi=false,isbn=false,url=false,eprint=true]{biblatex}
 \addbibresource{cichonsmaximum.bib}
@@ -853,87 +865,70 @@ $\alpha\in S^4\cap \nabla$について，$\lim_{\bar D}\bar p(\alpha)$はeventua
 		$\chi$を基数とし，$B$を集合とし，$X^0\in [B]^\chi$とする． 
 		$\mR$は$\chi^+$-ccな強制概念で$C$は$\mR$名前で次を満たすとする：
 		\[
-		\mR \forces \text{``$C$ is an  $\omega_1$-club subset of $[B]^\chi$''}.
+		\mR \forces \text{``$C$は$[B]^\chi$の$\omega_1$-club部分集合''}.
 		\]
 		するとある集合$X\supseteq X^0$がグラウンドモデルに存在し，$\mR \forces X\in C$.
 	\end{lem}
 	\begin{proof}
-		By induction, choose (in the ground model) sequences 
-		$X^\alpha, \tilde X^\alpha$ for $\alpha< \omega_1$ such that
-		$X^\alpha$ is in $[B]^\chi$, the sequence of the $X^\alpha$ is increasing with $\alpha$, $\tilde X^\alpha$
-		is an $R$-name, and the empty condition forces:
-		``$\tilde X^\alpha$ is in $C$ and is a  superset of $X^\alpha$;
-		and the sequence of the $\tilde X^\alpha$ is increasing (not necessarily continuous).''
-		Moreover, the empty condition forces $\tilde X^\alpha\subseteq X^{\alpha+1}$.
-		(In a  limit step $\gamma$, we set $X^\gamma=\bigcup_{\alpha<\gamma}X^\alpha$, and in a successor step $\alpha+1$ we use $\chi^+$-cc to cover the name $\tilde X^\alpha$.)
-		Then $X=\bigcup_{\alpha\in\omega_1}X^\alpha$ is as required.
+		帰納法により列$(X^\alpha, \tilde X^\alpha : \alpha < \omega_1)$を次のように選ぶ．
+		\begin{itemize}
+			\item $X^\alpha$は$[B]^\chi$の元
+			\item $X^\alpha$たちは$\alpha$に関して単調増大
+			\item $\tilde X^\alpha$は$\mR$名前で$\mR$で次が強制される： ``$\tilde X^\alpha$は$C$の元で$X^\alpha$を含む; 
+		そして$\tilde X^\alpha$たちの列は単調増加である(必ずしも連続ではない)．''
+			\item $\mR$で$\tilde X^\alpha\subseteq X^{\alpha+1}$が強制される.
+		\end{itemize}
+		(極限ステップ$\gamma$では$X^\gamma=\bigcup_{\alpha<\gamma}X^\alpha$とおき，後続ステップ$\alpha+1$では$\chi^+$-ccを使って名前$\tilde X^\alpha$をカバーする．)
+		すると$X=\bigcup_{\alpha\in\omega_1}X^\alpha$が望まれた集合である．
 	\end{proof}
 	
 	
-	\begin{proof}[Proof of Lemma~\ref{lem:gch-construction}]
-		Let $\mR$ be a ${<}\chi$-closed $\chi^+$-cc p.o.\ that forces
-		$2^\chi=\lambda_5$.
+	\begin{proof}[補題\ref{lem:gch-construction}の証明]
+		$\mR$を${<}\chi$-closedかつ$\chi^+$-ccな強制法で$2^\chi=\lambda_5$を強制するものとする．
 		
-		In the $\mR$-extension $V^*$, Assumption~\ref{asm:chi} holds;
-		and Assumption~\ref{asm:P} still holds for the fixed parameters.\footnote{In particular, $(w_\alpha)_{\alpha\in S^i}$ is still cofinal in
-			$[\delta_5]^{{<}\lambda_i}$: For $i=1,2$, the forcing $\mR$
-			doesn't add any new elements of $[\delta_5]^{{<}\lambda_i}$ as 
-			$\mR$ is $\lambda_i$-closed;
-			for $i=3$ any new subset of $\delta_5$ of size $\theta<\lambda_3$
-			is contained in a ground model set of size at most $\theta\times \chi<\lambda_3$, as $\mR$ is $\chi^+$-cc.}
+		$\mR$拡大$V^*$の中で仮定\ref{asm:chi}は成り立つ．
+		そして仮定\ref{asm:P}はなお成り立つ
+		\begin{reason}
+		$(w_\alpha)_{\alpha\in S^i}$はなお$[\delta_5]^{{<}\lambda_i}$の中で共終である:
+		$i=1,2$について強制法$\mR$は$[\delta_5]^{{<}\lambda_i}$の元を付け加えない．$\mR$が$\lambda_i$-closedだから．
 		
-		So in $V^*$, we can perform the inductive Construction~\ref{constr}, where now ``ground model'' refers to $V^*$, not $V$ (e.g.,
-		when we talk about determined positions,
-		or ground-model-code-sequences, etc). 
-		Actually, we can construct in $V$ the following, by induction on $\alpha\in \delta_5$, and starting
-		with some cofinal $\bar w^{\text{initial}}=(w^{\text{initial}}_\alpha)_{\alpha\in S^4}$ in $V$:
+		$i=3$について，$\delta_5$の新しい部分集合でサイズ$\theta<\lambda_3$なものは，
+		グラウンドモデルの集合でサイズがたかだか$\theta\times \chi<\lambda_3$なものに含まれる．$\mR$が$\chi^+$-ccだから．
+		\end{reason}
+		
+		よって$V^*$の中で帰納的な構成\ref{constr}を実行できる．
+		実際には$V$の中で$\alpha\in \delta_5$に関する帰納法で次が構成できる．まず，ある共終な列$\bar w^{\text{initial}}=(w^{\text{initial}}_\alpha)_{\alpha\in S^4}$を$V$で固定しておく．
 		\begin{itemize}
-			\item An $\mR$-name $(D^\ve_\alpha)_{\ve\in \chi}$ (forced to be constructed) according to \ref{constr}(a,b,c).
-			\item If $\alpha\in S^4$, 
-			some $w_\alpha\supseteq w^\text{initial}_\alpha$ in $V$
-			such that $\mR$ forces $w_\alpha$ satisfies \ref{constr}(d).
+			\item $\mR$名前$(D^\ve_\alpha)_{\ve\in \chi}$で構成\ref{constr}の(1,2,3)に従ったもの．
+			\item $\alpha\in S^4$ならば$w_\alpha\supseteq w^\text{initial}_\alpha$が$V$の中に取れて$\mR$が$w_\alpha$が構成\ref{constr}の(4)を満たすことを強制する．
 			
-			(We can do this by Lemma~\ref{lem:club}, as the set of potential $w_\alpha$'s is an $\omega_1$-clubset of $[\alpha]^{{<}\lambda_4}$.)
+			(補題\ref{lem:club}と$w_\alpha$の候補たちの集合が$[\alpha]^{{<}\lambda_4}$の中で$\omega_1$-club集合だったことを使う．)
 		\end{itemize}
 		
-		So we get in $V$ a cofinal parameter $\bar w$ satisfying the following: 
-		In the $\mR$-extension $V^*$, the same parameters
-		define a forcing (call it 
-		$\PaB$)
-		satisfying 
-		$\EUB(\relR_3, \PaB,\kappa)$ in $V^*$.
+		よって，$V$の中でパラメータ$\bar w$であって次を満たすものを得た： 
+		$\mR$拡大$V^*$の中で同じパラメータは強制法$\PaB$を定め，それは$\EUB(\relR_3, \PaB,\kappa)$ in $V^*$を満たす．
 		
 		
-		$\PaB$ is basically the same as $\Pa$. More formally:
+		$\PaB$は基本的に$\Pa$と同じものである．
 		\begin{quote}
-			In the $\mR$-extension $V^*$,  $\Pa=(P_\alpha,Q_\alpha)_{\alpha<\delta_5}$ (the iteration constructed in $V$) is 
-			canonically densely embedded into $\PaB=(P^*_\alpha,Q^*_\alpha)_{\alpha<\delta_5}$ 
-			(the iteration constructed in $V^*$ using the same parameters).
+			$\mR$拡大$V^*$の中で$\Pa=(P_\alpha,Q_\alpha)_{\alpha<\delta_5}$ ($V$の中で構成したもの)は標準的に$\PaB=(P^*_\alpha,Q^*_\alpha)_{\alpha<\delta_5}$ に稠密埋め込みされる．
 		\end{quote}
 		
-		Proof: By induction, we show (in the $\mR$-extension) that $P^*_\alpha$ forces 
-		that $Q^*_\alpha$ (evaluated by the $P^*_\alpha$-generic) is equal to
-		$Q_\alpha$ (evaluated by the induced $P_\alpha$-generic, as per induction hypothesis):
-		Every element of $Q^*_\alpha$ is a Borel function (which already exists in $V$)
-		applied to the generics at a countable sequence of indices in $w_\alpha$ (which also already exists in $V$).
+		証明: 帰納法により($\mR$拡大の中で)$P^*_\alpha$が強制することの，$Q^*_\alpha$ ($P^*_\alpha$-ジェネリックによって評価される)が$Q_\alpha$ ($P_\alpha$ (帰納法の仮定より$P^*_\alpha$と等価)のジェネリックにより評価される)と等しいとなることを示す．
+		$Q^*_\alpha$の任意の元は$V$にすでに存在するBorel関数を添字$w_\alpha$の位置にある可算個のジェネリック実数に適用したものである．それは$V$にすでにある．
 		
-		
-		This implies:
+		これは次を導く：
 		\begin{quote}
-			In $V$, $\EUB(\relR_3, \Pa,\kappa)$ holds for all $\kappa\in[\lambda_3,\lambda_5]$, witnessed by the first $\kappa$ many Cohen reals.
+			$V$においてすべての正則基数$\kappa\in[\lambda_3,\lambda_5]$について$\EUB(\relR_3, \Pa,\kappa)$が成り立ち，それは$\kappa$個Cohen実数によりwitnessされる．
 		\end{quote}
 	
-		Proof: 
-		Let $y$ be a $\Pa$-name of a real.
-		In $V^*$, 
-		we can interpret $y$ as $\PaB$-name, and as 
-		$\EUB(\relR_3, \PaB,\kappa)$ holds, we get
-		$(\exists \alpha\in\kappa)\, (\forall \beta\in\kappa\setminus \alpha)
-		\PaB\forces  c_\beta \nleq^* y$, where $c_\beta$ is the Cohen added at $\beta$.
-		As $\chi<\kappa$, 
-		there is in $V$ an upper bound $\alpha^*<\kappa$ for the possible values of $\alpha$.
-		For any $\beta\in\kappa\setminus \alpha^*$,
-		we have (in $V$) $\Pa\forces  c_\beta \nleq^* y$ (by absoluteness).
+		証明:
+		$y$を実数の$\Pa$名前とする．
+		$V^*$においてにおいて$y$を$\PaB$名前として解釈する．
+		$\EUB(\relR_3, \PaB,\kappa)$が成り立つので，$(\exists \alpha\in\kappa)\, (\forall \beta\in\kappa\setminus \alpha)
+		\PaB\forces  c_\beta \nleq^* y$となる．ここで$c_\beta$は$\beta$番目のCohen実数である．
+		$\chi<\kappa$なのでなので$V$の中に$\alpha^*<\kappa$であって$\alpha$の取りうる値の上界がとれる．
+		任意の$\beta\in\kappa\setminus \alpha^*$について$V$において絶対性より$\Pa\forces  c_\beta \nleq^* y$が分かる．
 	\end{proof}
 		
 	
